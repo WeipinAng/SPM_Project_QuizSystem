@@ -21,14 +21,16 @@ body {
     position: fixed;
     width: 200px;
     height: 100%;
-    background: #006666;
+    background-image: linear-gradient(#FAEE9E,#E5A663);
     padding: 30px 0;
 }
 
 .wrapper .dashboard h2 {
-    color: #fff;
+    color: #000000;
+    font-family: cursive;
     text-align: center;
     margin-bottom: 30px;
+    margin-top: -15px;
 }
 
 .icon img {
@@ -39,9 +41,9 @@ body {
     box-shadow: 0 0 20px 0 #b3b3cc;
 }
 
-h6 {
+h5 {
     margin-bottom: 25px;
-    color: #cccccc;
+    color: #000000;
 }
 
 .wrapper .dashboard ul li {
@@ -51,7 +53,7 @@ h6 {
 }
 
 .wrapper .dashboard ul li a {
-    color: #fff;
+    color: #000000;
     display: block;
 }
 
@@ -64,11 +66,11 @@ h6 {
 }
 
 .wrapper .dashboard ul li:hover {
-    background: #009999;
+    background: #F7DC6F;
 }
 
 .wrapper .dashboard ul li:hover a {
-    color: #fff;
+    color: #000000;
 }
 
 .space {
@@ -76,16 +78,40 @@ h6 {
     margin-left: 200px;
 }
 
-.header{
+.header {
     padding: 20px;
     background: #fff;
-    color: #717171;
+    color: #000000;
     border-bottom: 1px solid #e0e4e8;
+}
+
+.header h2 {
+    color: #353A5F;
+    text-shadow: 0 0 10px #9EBAF3;
+}
+
+.logoutbutton{
+    padding: 5px;
+    background-image: linear-gradient(90deg,#6CD0FF,#1C2E4C);
+    text-shadow: 0 0 10px #fff;
+    float: right;
+    margin-top: -30px;
+    margin-right: 30px;
+    font-size: 20px;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: #fff;
 }
 
 .maincontent {
     margin: 20px;
-    color: #717171;
+    color: #000000;
     line-height: 25px;
 }
 
@@ -93,13 +119,13 @@ h6 {
     margin-bottom: 20px;
 }
 
+.title {
+    font-weight: bold;
+    color: #2E4053;
+}
 
-button{
-    padding: 5px;
-    background: #19B3D3;
-    float: right;
-    margin-top: 30px;
-    margin-right: 40px;
-    font-size: 15px;
-    color: #fff;
+.separator {
+    width: 1020px;
+    height: 5px;
+    background-image: linear-gradient(108.9deg,  rgba(251,140,0,1) 11.2%, rgba(0,139,155,1) 88.9%);
 }

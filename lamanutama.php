@@ -21,25 +21,33 @@ $idpengguna=$_SESSION['idpengguna'];
             <div class="icon">
                 <img src="images/Daftar2.png" alt="">
             </div>
-            <h6>
-                <?php
-                //papar maklumat lengkap pengguna login
-                $dataA=mysqli_query($conn, "SELECT*FROM pengguna WHERE idpengguna='$idpengguna'");//sambung pada php di bahagian atas file ini
-                $infoA=mysqli_fetch_array($dataA);
-                ?>
-                    Nama Anda   : <?php echo $infoA['nama'];?><br>
-                    ID Pengguna : <?php echo $infoA['idpengguna'];?><br>
-            </h6>
+            <h5><center>Murid</center></h5>
             <ul>
-                <li><a href="#"><i class="fas fa-info-circle"></i>Profil</a></li>
-                <li><a href="#"><i class="fab fa-wpforms"></i>Koleksi Kuiz</a></li>
-                <li><a href="#"><i class="fas fa-table"></i>Prestasi Kuiz</a></li>
+                <li><a href="#lamanutama.php"><i class="fas fa-info-circle"></i>Profil</a></li>
+                <li><a href="#koleksikuiz.php"><i class="fab fa-wpforms"></i>Koleksi Kuiz</a></li>
+                <li><a href="#prestasikuiz.php"><i class="fas fa-table"></i>Prestasi Kuiz</a></li>
             </ul>
         </div>
         <div class="space">
-            <div class="header">Sistem Penilaian Kuiz Bahasa Melayu Tingkatan 4</div>
+            <div class="header">
+                <h2>Sistem Penilaian Kuiz Bahasa Melayu Tingkatan 4</h2>
+                <div class="logoutbutton"><a href="login.php">Log Keluar</a></div>
+            </div>
             <div class="maincontent">
-                <div> Butiran Pengguna </div>
+                <div class="title">BUTIRAN PENGGUNA</div>
+                <div class="separator"></div>
+                <div class="userprofile">
+                    <h4>
+                    <?php
+                    //papar maklumat lengkap pengguna login
+                    $dataA=mysqli_query($conn, "SELECT*FROM pengguna WHERE idpengguna='$idpengguna'");//sambung pada php di bahagian atas file ini
+                    $infoA=mysqli_fetch_array($dataA);
+                    ?>
+                        Nama        : <?php echo $infoA['nama'];?><br>
+                        ID Pengguna : <?php echo $infoA['idpengguna'];?><br>
+                        No Telefon  : <?php echo $infoA['notel'];?><br>
+                    </h4>
+                </div>
             </div>
         </div>
     </div>
