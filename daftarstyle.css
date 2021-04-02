@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Times New Roman', Times, serif;
+}
+
+.form-box {
+    max-width: 650px;
+    height: 720px;
+    position: relative;
+    margin: 6% auto;
+    background: #fff;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 5px;
+}
+
+.title-box {
+    width: 350px;
+    margin: 25px auto;
+    position: relative;
+    box-shadow: 0 0 10px 10px #e6ffe6;
+    border-radius: 30px;
+    background: linear-gradient(to right, #2A2B2A, #A7EEB0, #2A2B2A);
+}
+
+.title {
+    padding: 10px;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;
+    text-align: center;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 20px #fff;
+}
+
+.icon img {
+    display: block;
+    margin: 20px auto;
+    width: 30%;
+    border-radius: 50%;;
+    box-shadow: 0 0 20px 0 #b3b3cc;
+}
+
+.registerform {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.forminput {
+    width: auto;
+    position: relative;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.peranan{
+    appearance: none;
+}
+
+select,
+button {
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    font-size: 0.9em;
+}
+
+select {
+    width: 100%;
+    background: #e6e6e6;
+    letter-spacing: 0.5px;
+    padding: 14px 64px;
+}
+
+/*"invalid" works here because of the empty value in the placeholder option*/
+select:invalid {
+    color: #888;
+}
+
+select ~ i {
+    position: absolute;
+    left: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    transition: color 0.4s;
+}
+
+select:focus ~ i {
+    color: #86b300;
+}
+
+.button {
+    display: block;
+    text-align: center;
+}
+
+.notice {
+    text-align: center;
+}
+
+input,
+button {
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    font-size: 0.9em;
+}
+
+input {
+    width: 100%;
+    background: #e6e6e6;
+    color: #000000;
+    letter-spacing: 0.5px;
+    padding: 14px 64px;
+}
+
+input ~ i {
+    position: absolute;
+    left: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    transition: color 0.4s;
+}
+
+input:focus ~ i {
+    color: #86b300;
+}
+
+button.submit {
+    color: #000;
+    padding: 10px 30px;
+    margin: 10px 25px 5px auto;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-shadow: 0 0 10px #fff;
+    background-image: linear-gradient(to right,#FFB330, #FFFCCE);
+    cursor: pointer;
+}
+
+button.reset {
+    color: #000;
+    padding: 10px 30px;
+    margin: 10px auto;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-shadow: 0 0 10px #fff;
+    background-image: linear-gradient(to right, #EFEB77, #F6AF04);
+    cursor: pointer;
+}

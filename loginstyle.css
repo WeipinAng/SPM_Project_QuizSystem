@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Times New Roman', Times, serif;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.side img {
+    width: 100%;
+    max-height: 100vh;
+}
+
+.login-container {
+    max-width: 450px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.separator {
+    width: 300px;
+    height: 5px;
+    background-image: linear-gradient(to right, #808000, #cccc00, #ffff00, #cccc00, #808000);
+    margin: 20px;
+}
+
+.message {
+    text-align: center;
+    font-size: 1em;
+    line-height: 28px;
+    margin-bottom: 20px;
+    color: #696969;
+}
+
+.loginform {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.forminput {
+    width: 100%;
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.button {
+    display: inline-block;
+    text-align: center;
+}
+
+.register{
+    text-align: center;
+}
+
+input,
+button {
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    font-size: 0.9em;
+}
+
+input {
+    width: 100%;
+    background: #e6e6e6;
+    color: #000000;
+    letter-spacing: 0.5px;
+    padding: 14px 64px;
+}
+
+input ~ i {
+    position: absolute;
+    left: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    transition: color 0.4s;
+}
+
+input:focus ~ i {
+    color: #009999;
+}
+
+button.submit {
+    color: #fff;
+    padding: 10px 30px;
+    margin: 10px 25px auto;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-shadow: 0 0 10px #fff;
+    background-image: linear-gradient(to right, #38ADAE, #CD295A);
+    cursor: pointer;
+    transition: opacity 0.4s;
+}
+
+button.reset {
+    color: #fff;
+    padding: 10px 30px;
+    margin: 10px auto;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-shadow: 0 0 10px #fff;
+    background-image: linear-gradient(to right, #5f2c82, #49a09d);
+    cursor: pointer;
+    transition: opacity 0.4s;
+}
+
+button.submit:hover {
+    opacity: 0.9;
+}
+button.reset:hover {
+    opacity: 0.9;
+}
+
+/* ---- Responsiveness ---- */
+@media (max-width: 780px){
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .side {
+        display: none;
+    }
+}
