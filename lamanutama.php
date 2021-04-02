@@ -39,7 +39,7 @@ $idpengguna=$_SESSION['idpengguna'];
         <div class="space">
             <div class="header">Sistem Penilaian Kuiz Bahasa Melayu Tingkatan 4</div>
             <div class="maincontent">
-                <div> -- </div>
+                <div> Butiran Pengguna </div>
             </div>
         </div>
     </div>
