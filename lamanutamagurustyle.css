@@ -129,3 +129,49 @@ a:visited {
     height: 5px;
     background-image: linear-gradient(108.9deg,  rgba(251,140,0,1) 11.2%, rgba(0,139,155,1) 88.9%);
 }
+
+.detailbox {
+    width: 1020px;
+    height: 400px;
+    position: relative;
+    background: #fff;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 40px;
+}
+
+.numbering img {
+    height: 100px;
+    width: 100px;
+    float: left;
+    margin-right: 120px;
+    margin-top: -10px;
+}
+
+.nama,.idpengguna,.notelefon {
+    width: 600px;
+    height: 60px;
+    background: #f2f2f2;
+    color: #000000;
+    letter-spacing: 0.5px;
+    padding: 15px;
+    border-radius: 30px;
+    font-size: 0.9em;
+    display: inline-block;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.nama i,
+.idpengguna i {
+    margin-left: 10px;
+}
+
+.notelefon i {
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+p {
+    display: inline-block;
+    margin-left: 30px;
+}

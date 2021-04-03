@@ -23,7 +23,7 @@ $idpengguna=$_SESSION['idpengguna'];
             </div>
             <h5><center>Murid</center></h5>
             <ul>
-                <li><a href="#lamanutama.php"><i class="fas fa-info-circle"></i>Profil</a></li>
+                <li><a href="#lamanutamamurid.php"><i class="fas fa-info-circle"></i>Profil</a></li>
                 <li><a href="#koleksikuiz.php"><i class="fab fa-wpforms"></i>Koleksi Kuiz</a></li>
                 <li><a href="#prestasikuiz.php"><i class="fas fa-table"></i>Prestasi Kuiz</a></li>
             </ul>
@@ -36,17 +36,43 @@ $idpengguna=$_SESSION['idpengguna'];
             <div class="maincontent">
                 <div class="title">BUTIRAN PENGGUNA</div>
                 <div class="separator"></div>
-                <div class="userprofile">
-                    <h4>
+                <div class="detailbox">                     
+                    <h3>
                     <?php
                     //papar maklumat lengkap pengguna login
                     $dataA=mysqli_query($conn, "SELECT*FROM pengguna WHERE idpengguna='$idpengguna'");//sambung pada php di bahagian atas file ini
                     $infoA=mysqli_fetch_array($dataA);
                     ?>
-                        Nama        : <?php echo $infoA['nama'];?><br>
-                        ID Pengguna : <?php echo $infoA['idpengguna'];?><br>
-                        No Telefon  : <?php echo $infoA['notel'];?><br>
-                    </h4>
+                    <div class="detail">
+                        <div class="numbering">
+                            <img src="images/Numbering 1.png" alt="">
+                        </div>
+                        <div class="nama">
+                            <i class="fas fa-signature"></i>
+                            <p><?php echo $infoA['nama'];?></p><br>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <div class="numbering">
+                            <img src="images/Numbering 2.png" alt="">
+                        </div>
+                        <div class="idpengguna">
+                            <i class="fas fa-address-card"></i>
+                            <p><?php echo $infoA['idpengguna'];?></p><br>
+                        </div>
+                    </div>     
+                    <div class="detail">
+                        <div class="numbering">
+                            <img src="images/Numbering 3.png" alt="">
+                        </div>
+                        <div class="notelefon">
+                            <i class="fas fa-mobile-alt"></i>
+                            <p><?php echo $infoA['notel'];?></p><br>
+                        </div>
+                    </div>                           
+                    </h3>                      
+                </div>                 
+                </div>
                 </div>
             </div>
         </div>
