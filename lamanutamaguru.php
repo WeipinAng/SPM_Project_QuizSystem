@@ -24,7 +24,7 @@ $idpengguna=$_SESSION['idpengguna'];
             <h5><center>Guru</center></h5>
             <ul>
                 <li><a href="#lamanutamaguru.php"><i class="fas fa-info-circle"></i>Profil</a></li>
-                <li><a href="#koleksikuiz.php"><i class="fab fa-wpforms"></i>Koleksi Kuiz</a></li>
+                <li><a href="#koleksikuizguru.php"><i class="fab fa-wpforms"></i>Koleksi Kuiz</a></li>
                 <li><a href="#prestasikuiz.php"><i class="fas fa-table"></i>Data Prestasi Kuiz Murid</a></li>
             </ul>
         </div>

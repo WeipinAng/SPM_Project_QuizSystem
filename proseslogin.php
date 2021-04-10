@@ -16,7 +16,7 @@
             window.location='login.php'</script>";
         }else{
             $_SESSION['idpengguna']=$row['idpengguna'];
-            //akan bawa ke menu.php
+            //akan bawa ke lamanutamamurid.php
             $_SESSION['level']=$row['peranan'];
             header ("Location: lamanutamamurid.php");
         }
@@ -34,7 +34,7 @@
             window.location='login.php'</script>";
         }else{
             $_SESSION['idpengguna']=$row['idpengguna'];
-            //akan bawa ke menu.php
+            //akan bawa ke lamanutamaguru.php
             $_SESSION['level']=$row['peranan'];
             header ("Location: lamanutamaguru.php");
         }
