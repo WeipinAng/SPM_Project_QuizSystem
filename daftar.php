@@ -13,11 +13,11 @@ if(isset($_POST['idpengguna'])){
     $daftar="INSERT INTO pengguna (idpengguna,katalaluan,nama,peranan,notel) VALUES
     ('$idpengguna','$katalaluan','$nama','$peranan','$notel')";//jika ada ralat
     $hasil=mysqli_query($conn,$daftar);
-        if ($hasil){
-            echo"<script>alert('Pendaftaran berjaya.');window.location='login.php'</script>";
-        }else{
-            echo"<script>alert('Pendaftaran gagal.');window.location='daftar.php'</script>";
-        }
+    if ($hasil){
+        echo"<script>alert('Pendaftaran berjaya.');window.location='login.php'</script>";
+    }else{
+        echo"<script>alert('Pendaftaran gagal.');window.location='daftar.php'</script>";
+    }
 }
 ?>
 

@@ -79,7 +79,7 @@ if(isset($_POST['idpengguna'])){
         <div class="space">
             <div class="header">
                 <h2>Sistem Penilaian Kuiz Bahasa Melayu Tingkatan 4</h2>
-                <div class="logoutbutton"><a href="login.php">Log Keluar</a></div>
+                <div class="logoutbutton"><a href="logout.php">Log Keluar</a></div>
             </div>
             <div class="maincontent">
                 <div class="title">KOLEKSI KUIZ</div>

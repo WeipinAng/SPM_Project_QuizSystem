@@ -7,12 +7,15 @@ $idpengguna=$_SESSION['idpengguna'];
 if(isset($_POST['idpengguna'])){
     $soal=$_POST['soal'];
     $plhjwp=$_POST['plhjwp'];
+    $jwp=$_POST['jwp'];
 
     $daftarsoalan="INSERT INTO soalan (soal) VALUES
     ('$soal')";//jika ada ralat
-    $hasil=mysqli_query($conn,$daftarsoalan);
-        if ($hasil){
-            echo"<script>alert('Pendaftaran soalan berjaya.');window.location='login.php'</script>";
+    $daftarjawapan="INSERT INTO pilihan (plhjwp,jwp) VALUES
+    ('$plhjwp,$jwp')";//jika ada ralat
+    $hasil=mysqli_query($conn,$daftarsoalan&&$daftarjawapan);
+        if ($daftarsoalan&&$daftarjawapan){
+            echo"<script>alert('Pendaftaran berjaya.');window.location='daftarkuizguru.php'</script>";
         }
 }
 ?>
@@ -44,7 +47,7 @@ if(isset($_POST['idpengguna'])){
         <div class="space">
             <div class="header">
                 <h2>Sistem Penilaian Kuiz Bahasa Melayu Tingkatan 4</h2>
-                <div class="logoutbutton"><a href="login.php">Log Keluar</a></div>
+                <div class="logoutbutton"><a href="logout.php">Log Keluar</a></div>
             </div>
             <div class="maincontent">
                 <div class="title">DAFTAR KUIZ BAHARU</div>
@@ -89,10 +92,10 @@ if(isset($_POST['idpengguna'])){
                             <!-- When the "select" element is required, it allows use of the ":invalid" CSS pseudo-class which allows you to style the "select" element when in its "placeholder" state-->
                             <!-- "hidden" element: the option is visible in dropdown, but it is not selectable-->
                             <option value="" disabled selected hidden>Jawapan</option>
-                            <option value="A">A</option>
-                            <option value="B">B</option>
-                            <option value="C">C</option>
-                            <option value="D">D</option>
+                            <option value="A">Jawapan: A</option>
+                            <option value="B">Jawapan: B</option>
+                            <option value="C">Jawapan: C</option>
+                            <option value="D">Jawapan: D</option>
                             </select>
                         </div>
 
