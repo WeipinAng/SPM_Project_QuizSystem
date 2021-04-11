@@ -153,12 +153,29 @@ a:visited {
     margin-right: 50px;
 }
 
+.soalan {
+    background: #b3cccc;
+}
+
 .forminput {
+    position: relative;
     width: 400px;
-    display: inline-block;
     margin-bottom: 20px;
     margin-left: 50px;
     margin-right: 50px;
+}
+
+input ~ p {
+    position: absolute;
+    left: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #204060;
+    transition: color 0.4s;
+}
+
+input:focus ~ p {
+    color: #3d5c5c;
 }
 
 .jawapan {
@@ -194,10 +211,6 @@ button {
     border: none;
     outline: none;
     font-size: 0.9em;
-}
-
-.soalan {
-    background: #e6e6e6;
 }
 
 input {

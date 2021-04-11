@@ -54,28 +54,32 @@ if(isset($_POST['idpengguna'])){
                     <!-- output borang pendaftaran -->
                     <form class="quizform" action="" method="post" spellcheck="false">
                         <div class="forminputsoalan">
-                            <input class="soalan" type="text" name="soal" placeholder="Soalan &#10"
+                            <input class="soalan" type="text" name="soal" placeholder="Soalan"
                             onkeypress='return event.charCode>=32 && event.charCode<=125' required></input>
                         </div>
 
                         <div class="forminput">
                             <input type="text" name="plhjwp" placeholder="Pilihan 1"
                             onkeypress='return event.charCode>=32 && event.charCode<=125' required>
+                            <p>A</p>
                         </div>
 
                         <div class="forminput">
                             <input type="text" name="plhjwp" placeholder="Pilihan 2"
                             onkeypress='return event.charCode>=32 && event.charCode<=125' required>
+                            <p>B</p>
                         </div>
 
                         <div class="forminput">
                             <input type="text" name="plhjwp" placeholder="Pilihan 3"
                             onkeypress='return event.charCode>=32 && event.charCode<=125' required>
+                            <p>C</p>
                         </div>
 
                         <div class="forminput">
                             <input type="text" name="plhjwp" placeholder="Pilihan 4"
                             onkeypress='return event.charCode>=32 && event.charCode<=125' required>
+                            <p>D</p>
                         </div>
 
                         <div class="forminput">
