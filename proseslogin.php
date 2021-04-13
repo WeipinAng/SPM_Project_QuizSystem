@@ -8,7 +8,7 @@
         $idpengguna = $_POST['idpengguna'];
         $katalaluan = $_POST['katalaluan'];
         //nama mesti sama dengan $conn di connect.php
-        $query = mysqli_query($conn, "SELECT* FROM pengguna WHERE idpengguna='$idpengguna' AND katalaluan='$katalaluan'");
+        $query = mysqli_query($conn, "SELECT* FROM pengguna WHERE idpengguna='$idpengguna' AND katalaluan='$katalaluan' AND idpengguna LIKE 'M%'");
         $row = mysqli_fetch_assoc($query);
         //perlu sama dengan post
         if (mysqli_num_rows($query)==0||$row['katalaluan']!=$katalaluan){

@@ -52,9 +52,9 @@ if(isset($_POST['idpengguna'])){
             <!-- output borang pendaftaran -->
             <form class="registerform" action="" method="post">
                 <div class="forminput">
-                    <input onblur="checkLength(this)" type="text"
+                    <input onchange="checkLength(this)" type="text"
                     name="idpengguna" placeholder="ID Pengguna" maxlength="5"
-                    onkeypress='return event.charCode>=48 && event.charCode<=90' required autofocus/>
+                    onkeypress='return event.charCode==71 || event.charCode==77 || (event.charCode>=48 && event.charCode<=57)' required autofocus/>
                     <i class="fas fa-address-card"></i>
                     <script>
                         function checkLength (e1){
@@ -79,7 +79,7 @@ if(isset($_POST['idpengguna'])){
 
                 <!-- perlu alert jika ada ralat -->
                 <div class="forminput">
-                    <select class="peranan" name="peranan" required>
+                    <select class="peranan" id="peranan" name="peranan" required>
                     <!-- using an empty value attribute on the "placeholder" option-->
                     <!-- "disabled" option stops it from being selected with both mouse and keyboard-->
                     <!-- When the "select" element is required, it allows use of the ":invalid" CSS pseudo-class which allows you to style the "select" element when in its "placeholder" state-->

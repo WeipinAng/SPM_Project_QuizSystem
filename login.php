@@ -21,9 +21,9 @@
             <form class="loginform" action="proseslogin.php" method="post">
                 <div class="forminput">
                     <!-- perlu sama dengan primary key database dalam table pengguna -->
-                    <input onblur="checkLength(this)" type="text"
+                    <input onchange="checkLength(this)" type="text"
                     name="idpengguna" placeholder="ID Pengguna" maxlength="5"
-                    onkeypress='return event.charCode >=48 && event.charCode <=90' required autofocus/>
+                    onkeypress='return event.charCode==71 || event.charCode==77 || (event.charCode>=48 && event.charCode<=57)' required autofocus/>
                     <i class="fas fa-address-card"></i>
                     <script>
                         function checkLength (e1){
