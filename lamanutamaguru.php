@@ -2,7 +2,6 @@
 require'connect.php';
 require'keselamatan.php';
 include('template/sidebarguru.php');
-//perlu sama dengan database table pengguna
 $idpengguna=$_SESSION['idpengguna'];
 ?>
 
@@ -10,7 +9,6 @@ $idpengguna=$_SESSION['idpengguna'];
     <link rel="stylesheet" href="lamanutamagurustyle.css?v=<?php echo time(); ?>">
     <title>Laman Utama</title>
 </head>
-
     <!-- header mula -->
         <div class="space">
             <div class="header">

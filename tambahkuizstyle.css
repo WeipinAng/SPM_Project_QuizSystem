@@ -78,6 +78,51 @@ a:visited {
     padding: 40px;
 }
 
+.quizform {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.forminputtopik {
+    width: auto;
+    position: relative;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.topik {
+    background: #b3cccc;
+}
+
+.forminput {
+    position: relative;
+    width: 400px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+select,
+button {
+    border: none;
+    outline: none;
+    font-size: 0.9em;
+}
+
+select {
+    width: 100%;
+    background: #e6e6e6;
+    letter-spacing: 0.5px;
+    padding: 14px 64px;
+}
+
+/*"invalid" works here because of the empty value in the placeholder option*/
+select:invalid {
+    color: #888;
+}
+
 .button {
     display: block;
     text-align: center;
@@ -87,14 +132,21 @@ input,
 button {
     border: none;
     outline: none;
-    border-radius: 30px;
     font-size: 0.9em;
+}
+
+input {
+    width: 100%;
+    background: #e0ebeb;
+    color: #000000;
+    letter-spacing: 0.5px;
+    padding: 14px 64px;
 }
 
 button.submit {
     color: #000;
     padding: 10px 30px;
-    margin: 10px 25px 5px auto;
+    margin: 20px 25px 5px auto;
     font-size: 0.8em;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -102,12 +154,13 @@ button.submit {
     text-shadow: 0 0 10px #fff;
     background-image: linear-gradient(to right,#FFB330, #FFFCCE);
     cursor: pointer;
+    border-radius: 30px;
 }
 
 button.reset {
     color: #000;
     padding: 10px 30px;
-    margin: 10px auto;
+    margin: 20px auto;
     font-size: 0.8em;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -115,4 +168,5 @@ button.reset {
     text-shadow: 0 0 10px #fff;
     background-image: linear-gradient(to right, #EFEB77, #F6AF04);
     cursor: pointer;
+    border-radius: 30px;
 }
