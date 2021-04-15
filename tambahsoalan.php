@@ -16,10 +16,17 @@ $idpengguna=$_SESSION['idpengguna'];
             <div class="maincontent">
                 <div class="title">TAMBAH SOALAN BAHARU</div>
                 <div class="separator"></div>
-                <div class="detailbox">                     
+                <div class="detailbox">
+                    
+                <?php
+                foreach ($_POST['jumlahsoalan'] as question) {
+                echo $question;
+                }
+                ?>
+
                     <h3>
                     <!-- output borang pendaftaran -->
-                    <form class="quizform" action="" method="post" spellcheck="false">
+                    <form name="question" class="quizform" action="" method="post" spellcheck="false">
                         <div class="forminputsoalan">
                             <input class="soalan" type="text" name="soal" placeholder="Soalan"
                             onkeypress='return event.charCode>=32 && event.charCode<=125' required></input>
