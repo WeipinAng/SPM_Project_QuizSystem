@@ -7,7 +7,6 @@ $idpengguna=$_SESSION['idpengguna'];
 
 <head>
     <link rel="stylesheet" href="tambahkuizstyle.css?v=<?php echo time(); ?>">
-    <title>Laman Utama</title>
 </head>
         <div class="space">
             <div class="header">
@@ -42,11 +41,22 @@ $idpengguna=$_SESSION['idpengguna'];
                     <?php
                         if(isset($_POST['submit'])){
                             $topik = $_POST['topik'];
+                            $idtopik = "T01";
+                            $query = mysqli_query($conn, "SELECT idtopik FROM topik ORDER BY idtopik DESC LIMIT 1");
+                            $fetch = mysqli_fetch_assoc($query);
+                            $idtopiksebelum = $fetch['idtopik'];
+                            $pengubah = (int) substr($idtopiksebelum,-2);
+                            if ($pengubah<10) {
+                                $idtopikbaharu = "T0".$idtopiksebelum;
+                            }else{
+                                $idtopikbaharu = "T".$idtopiksebelum;
+                            }
 
-                            $tambah="INSERT INTO topik (topik) VALUES ('$topik')";
+                            $tambah = "INSERT INTO topik (idtopik,topik) VALUES ('$idtopik','$topik')";
+
                             $hasil=mysqli_query($conn,$tambah);
                             if ($hasil){
-                                echo"<script>alert('Pendaftaran Kuiz Berjaya.');window.location='koleksikuizguru.php'</script>";
+                                echo"<script>alert('Pendaftaran Kuiz Berjaya.');window.location='tambahsoalan.php'</script>";
                             }else{
                                 echo"<script>alert('Pendaftaran Kuiz Gagal.');window.location='tambahkuiz.php'</script>";
                             }

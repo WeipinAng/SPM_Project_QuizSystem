@@ -1,56 +1,20 @@
 <?php
 require'connect.php';
 require'keselamatan.php';
-//perlu sama dengan database table pengguna
+include('template/sidebarguru.php');
 $idpengguna=$_SESSION['idpengguna'];
-//post value yang nama sama dengan database
-if(isset($_POST['idpengguna'])){
-    $soal=$_POST['soal'];
-    $plhjwp=$_POST['plhjwp'];
-    $jwp=$_POST['jwp'];
-
-    $daftarsoalan="INSERT INTO soalan (soal) VALUES
-    ('$soal')";//jika ada ralat
-    $daftarjawapan="INSERT INTO pilihan (plhjwp,jwp) VALUES
-    ('$plhjwp,$jwp')";//jika ada ralat
-    $hasil=mysqli_query($conn,$daftarsoalan&&$daftarjawapan);
-        if ($daftarsoalan&&$daftarjawapan){
-            echo"<script>alert('Pendaftaran berjaya.');window.location='daftarkuizguru.php'</script>";
-        }
-}
 ?>
 
-<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="tambahsoalanstyle.css?v=<?php echo time(); ?>">
-    <title>Laman Utama</title>
 </head>
-<body>
-    <div class="wrapper">
-        <div class="dashboard">
-            <h2>Laman Utama</h2>
-            <div class="icon">
-                <img src="images/Guru.png" alt="">
-            </div>
-            <h5><center>Guru</center></h5>
-            <ul>
-                <li><a href="lamanutamaguru.php"><i class="fas fa-info-circle"></i>Profil</a></li>
-                <li><a href="koleksikuizguru.php"><i class="fab fa-wpforms"></i>Koleksi Kuiz</a></li>
-                <li><a href="daftarkuizguru.php"><i class="fab fa-wpforms"></i>Daftar Kuiz</a></li>
-                <li><a href="prestasikuiz.php"><i class="fas fa-table"></i>Data Prestasi Kuiz Murid</a></li>
-            </ul>
-        </div>
         <div class="space">
             <div class="header">
                 <h2>Sistem Penilaian Kuiz Bahasa Melayu Tingkatan 4</h2>
                 <div class="logoutbutton"><a href="logout.php">Log Keluar</a></div>
             </div>
             <div class="maincontent">
-                <div class="title">DAFTAR KUIZ BAHARU</div>
+                <div class="title">TAMBAH SOALAN BAHARU</div>
                 <div class="separator"></div>
                 <div class="detailbox">                     
                     <h3>
