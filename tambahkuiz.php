@@ -41,18 +41,18 @@ $idpengguna=$_SESSION['idpengguna'];
                     <?php
                         if(isset($_POST['submit'])){
                             $topik = $_POST['topik'];
-                            $idtopik = "T01";
                             $query = mysqli_query($conn, "SELECT idtopik FROM topik ORDER BY idtopik DESC LIMIT 1");
                             $fetch = mysqli_fetch_assoc($query);
                             $idtopiksebelum = $fetch['idtopik'];
-                            $pengubah = (int) substr($idtopiksebelum,-2);
+                            $pengubah = (int)substr($idtopiksebelum,-2);
+                            $pengubah ++;
                             if ($pengubah<10) {
-                                $idtopikbaharu = "T0".$idtopiksebelum;
+                                $idtopikbaharu = "T0".$pengubah;
                             }else{
-                                $idtopikbaharu = "T".$idtopiksebelum;
+                                $idtopikbaharu = "T".$pengubah;
                             }
 
-                            $tambah = "INSERT INTO topik (idtopik,topik) VALUES ('$idtopik','$topik')";
+                            $tambah = "INSERT INTO topik (idpengguna,idtopik,topik) VALUES ('$idpengguna','$idtopikbaharu','$topik')";
 
                             $hasil=mysqli_query($conn,$tambah);
                             if ($hasil){

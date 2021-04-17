@@ -16,29 +16,49 @@ $idpengguna=$_SESSION['idpengguna'];
             </div>
             <div class="maincontent">
                 <div class="title">KOLEKSI KUIZ</div>
+                <div class="tambahkuiz"><a href="tambahkuiz.php">Tambah Kuiz</a></div> 
                 <div class="separator"></div>
                 <div class="detailbox">                     
                     <!-- output koleksi kuiz -->
-                    <a href="tambahkuiz.php" class="tambahkuiz">Tambah Kuiz</a>
                     <table class="koleksikuiz">
                         <tr>
+                            <th>Bil.</th>
                             <th>Id Topik</th>
                             <th>Topik</th>
-                            <th>Jumlah Soalan</th>
                             <th>Tindakan</th>
                         </tr>
 
+                        <?php
+                            //output butiran topik
+                            $tambah = "SELECT * FROM topik";
+                            $hasil = mysqli_query($conn,$tambah);
+                            $bil = 0;
+                            if($hasil==TRUE){
+                                //ambil semua rows
+                                $count = mysqli_num_rows($hasil);
+                                if($count>0){
+                                   //output semua butiran
+                                   while($rows = mysqli_fetch_assoc($hasil)){
+                                       //while loop untuk memastikan semua data dipaparkan
+                                       $bil ++;
+                                       $idtopik = $rows['idtopik'];
+                                       $topik = $rows['topik'];
+                                    }
+                                }else{
+                                }
+                            }
+                        ?>
+                        <!-- papar dalam bentuk jadual -->
                         <tr>
-                            <td>1.</td>
-                            <td>Kata Kerja</td>
-                            <td>5</td>
+                            <td><?php echo $bil;?></td>
+                            <td><?php echo $idtopik;?></td>
+                            <td><?php echo $topik;?></td>
                             <td>
                                 <a href="" class="kemaskinikuiz">Kemas Kini</a>
                                 <a href="" class="hapuskuiz">Hapuskan</a>
                             </td>
                         </tr>
                     </table>
-
                     <div class="button">
                         <button class="submit" type="submit">Daftar Soalan</button>
                         <button class="reset" type="reset">Reset</button>

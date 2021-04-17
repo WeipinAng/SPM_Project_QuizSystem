@@ -18,12 +18,6 @@ $idpengguna=$_SESSION['idpengguna'];
                 <div class="separator"></div>
                 <div class="detailbox">
                     
-                <?php
-                foreach ($_POST['jumlahsoalan'] as question) {
-                echo $question;
-                }
-                ?>
-
                     <h3>
                     <!-- output borang pendaftaran -->
                     <form name="question" class="quizform" action="" method="post" spellcheck="false">
