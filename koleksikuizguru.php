@@ -18,7 +18,10 @@ $idpengguna=$_SESSION['idpengguna'];
                 <div class="title">KOLEKSI KUIZ</div>
                 <div class="tambahkuiz"><a href="tambahkuiz.php">Tambah Kuiz</a></div> 
                 <div class="separator"></div>
-                <div class="detailbox">                     
+                <div class="detailbox">
+                    <!-- search bar mula -->
+                    
+                    <!-- search bar tamat -->    
                     <!-- output koleksi kuiz -->
                     <table class="koleksikuiz">
                         <tr>
@@ -40,7 +43,7 @@ $idpengguna=$_SESSION['idpengguna'];
                                    //output semua butiran
                                    while($rows = mysqli_fetch_assoc($hasil)){
                                        //while loop untuk memastikan semua data dipaparkan
-                                       $bil ++;
+                                       $bil++;
                                        $idtopik = $rows['idtopik'];
                                        $topik = $rows['topik'];
                                     }

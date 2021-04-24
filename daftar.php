@@ -92,7 +92,7 @@ if(isset($_POST['idpengguna'])){
                 </div>
 
                 <div class="forminput">
-                    <input type="text" name="notel" placeholder="No Telefon"
+                    <input type="text" name="notel" placeholder="No Telefon" maxlength="12"
                     onkeypress='return event.charCode>=48 && event.charCode<=57' required>
                     <i class="fas fa-mobile-alt"></i>
                 </div>
