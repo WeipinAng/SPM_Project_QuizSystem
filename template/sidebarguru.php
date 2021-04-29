@@ -20,7 +20,8 @@
             <ul>
                 <li><a href="lamanutamaguru.php"><i class="fas fa-info-circle"></i>Profil</a></li>
                 <li><a href="koleksikuizguru.php"><i class="fab fa-wpforms"></i>Koleksi Kuiz</a></li>
-                <li><a href="prestasikuiz.php"><i class="fas fa-table"></i>Data Prestasi Kuiz Murid</a></li>
+                <li><a href="prestasikuiz.php"><i class="fas fa-table"></i>Data Prestasi</a></li>
+                <li><a href="prestasikuiz.php"><i class="fas fa-file-import"></i>Import</a></li>
             </ul>
         </div>
     <!-- sidebar tamat -->

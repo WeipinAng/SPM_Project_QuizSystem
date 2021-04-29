@@ -29,7 +29,7 @@ $idpengguna=$_SESSION['idpengguna'];
                         //output butiran topik
                         $tambah = "SELECT * FROM topik";
                         $hasil = mysqli_query($conn,$tambah);
-                        $bil = 0;
+                        
                         ?>
                         <table class="koleksikuiz" autowidth="false">
                             <thead>
@@ -46,18 +46,18 @@ $idpengguna=$_SESSION['idpengguna'];
                                     $count = mysqli_num_rows($hasil);
                                     if($count>0){
                                         //output semua butiran
-                                        $bil++;
+                                        $bil = 1;
                                         //while loop untuk memastikan semua data dipaparkan
                                         while($rows = mysqli_fetch_assoc($hasil)): ?>
                                             
                                         <!-- papar dalam bentuk jadual -->
                                         <tr>
-                                            <td><?php echo $bil;?></td>
+                                            <td><?php echo $bil++;?></td>
                                             <td><?php echo $rows['idtopik'];?></td>
                                             <td><?php echo $rows['topik'];?></td>
                                             <td>
-                                                <a href="" class="kemaskinikuiz">Kemas Kini</a>
-                                                <a href="" class="hapuskuiz">Hapuskan</a>
+                                                <a href="kemaskinikuiz.php" class="kemaskinikuiz">Kemas Kini</a>
+                                                <a href="hapuskankuiz.php?idtopik=<?php echo $rows['idtopik']; ?>" class="hapuskuiz" type="delete">Hapuskan</a>
                                             </td>
                                         </tr>
                                         <?php endwhile; }} ?>
