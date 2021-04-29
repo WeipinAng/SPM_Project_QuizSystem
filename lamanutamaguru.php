@@ -1,6 +1,6 @@
 <?php
-require'connect.php';
-require'keselamatan.php';
+require 'connect.php';
+require 'keselamatan.php';
 include('template/sidebarguru.php');
 $idpengguna=$_SESSION['idpengguna'];
 ?>

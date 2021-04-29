@@ -1,6 +1,6 @@
 <?php
-require'connect.php';
-require'keselamatan.php';
+require 'connect.php';
+require 'keselamatan.php';
 //perlu sama dengan database table pengguna
 $idpengguna=$_SESSION['idpengguna'];
 ?>

@@ -1,7 +1,7 @@
 <?php
 //akan sambung kepada menu1.php
 //wajib ada
-require'connect.php';
+require 'connect.php';
 //post value yang nama sama dengan database
 if(isset($_POST['idpengguna'])){
     $idpengguna=$_POST['idpengguna'];

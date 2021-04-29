@@ -1,6 +1,6 @@
 <?php
 //wajib ada
-    require'connect.php';
+    require 'connect.php';
 
     session_start();
     //nama mesti sama dengan nama di login.php
