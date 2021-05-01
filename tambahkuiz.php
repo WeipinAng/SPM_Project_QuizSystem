@@ -15,6 +15,7 @@ $idpengguna=$_SESSION['idpengguna'];
             </div>
             <div class="maincontent">
                 <div class="title">TAMBAH KUIZ BAHARU</div>
+                <div class="balik"><a href="koleksikuizguru.php">Balik</a></div>
                 <div class="separator"></div>
                 <div class="detailbox">                     
                     <!-- borang penambahan kuiz mula -->
@@ -61,12 +62,7 @@ $idpengguna=$_SESSION['idpengguna'];
                                 echo"<script>alert('Pendaftaran Kuiz Gagal.');window.location='tambahkuiz.php'</script>";
                             }
                         }                   
-                    ?>
-
-                    <div class="button">
-                        <button class="submit" type="submit">Daftar Soalan</button>
-                        <button class="reset" type="reset">Reset</button>
-                    </div>                     
+                    ?>                  
                 </div>                 
                 </div>
                 </div>

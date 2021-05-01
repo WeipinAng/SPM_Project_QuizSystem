@@ -12,67 +12,6 @@ body {
     background: #f3f5f9;
 }
 
-.wrapper {
-    display: flex;
-    position: relative;
-}
-
-.wrapper .dashboard {
-    position: fixed;
-    width: 200px;
-    height: 100%;
-    background-image: linear-gradient(#FAEE9E,#E5A663);
-    padding: 30px 0;
-}
-
-.wrapper .dashboard h2 {
-    color: #000000;
-    font-family: cursive;
-    text-align: center;
-    margin-bottom: 30px;
-    margin-top: -15px;
-}
-
-.icon img {
-    display: block;
-    margin: 20px auto;
-    width: 60%;
-    border-radius: 50%;;
-    box-shadow: 0 0 20px 0 #b3b3cc;
-}
-
-h5 {
-    margin-bottom: 25px;
-    color: #000000;
-}
-
-.wrapper .dashboard ul li {
-    padding: 15px;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    border-top: 1px solid rgba(225,225,225,0.05);
-}
-
-.wrapper .dashboard ul li a {
-    color: #000000;
-    display: block;
-}
-
-.wrapper .dashboard ul li a .fas {
-    width: 25px;
-}
-
-.wrapper .dashboard ul li a .fab {
-    width: 25px;
-}
-
-.wrapper .dashboard ul li:hover {
-    background: #F7DC6F;
-}
-
-.wrapper .dashboard ul li:hover a {
-    color: #000000;
-}
-
 .space {
     width: 100%;
     margin-left: 200px;
@@ -96,7 +35,7 @@ h5 {
     text-shadow: 0 0 10px #fff;
     float: right;
     margin-top: -30px;
-    margin-right: 30px;
+    margin-right: 10px;
     font-size: 15px;
     color: #fff;
 }
@@ -137,6 +76,26 @@ a:visited {
     background: #fff;
     background-color: rgba(255, 255, 255, 0.7);
     padding: 40px;
+}
+
+.balik {
+    background-color: #58B19F;
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    float: right;
+    margin-top: -50px;
+    margin-right: 10px;
+}
+
+.balik:hover {
+    background-color: #079992;
+}
+
+.balik a:visited {
+    color: #fff;
 }
 
 .quizform {

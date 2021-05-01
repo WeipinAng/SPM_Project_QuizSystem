@@ -15,6 +15,7 @@ $idpengguna=$_SESSION['idpengguna'];
             </div>
             <div class="maincontent">
                 <div class="title">TAMBAH SOALAN BAHARU</div>
+                <div class="balik"><a href="koleksikuizguru.php">Balik</a></div>
                 <div class="separator"></div>
                 <div class="detailbox">
                     

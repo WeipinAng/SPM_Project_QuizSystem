@@ -56,8 +56,8 @@ $idpengguna=$_SESSION['idpengguna'];
                                             <td><?php echo $rows['idtopik'];?></td>
                                             <td><?php echo $rows['topik'];?></td>
                                             <td>
-                                                <a href="kemaskinikuiz.php" class="kemaskinikuiz">Kemas Kini</a>
-                                                <a href="hapuskankuiz.php?idtopik=<?php echo $rows['idtopik']; ?>" class="hapuskuiz" type="delete">Hapuskan</a>
+                                                <a href="kemaskinikuiz.php?idtopik=<?php echo $rows['idtopik']; ?>" class="kemaskinikuiz">Kemas Kini</a>
+                                                <a href="hapuskankuiz.php?idtopik=<?php echo $rows['idtopik']; ?>" class="hapuskuiz">Hapuskan</a>
                                             </td>
                                         </tr>
                                         <?php endwhile; }} ?>
@@ -69,11 +69,6 @@ $idpengguna=$_SESSION['idpengguna'];
                                 echo '</pre>';
                             }
                         ?>
-
-                        <div class="button">
-                            <button class="submit" type="submit">Daftar Soalan</button>
-                            <button class="reset" type="reset">Reset</button>
-                        </div>
                     </div>
             </div>
         </div>
