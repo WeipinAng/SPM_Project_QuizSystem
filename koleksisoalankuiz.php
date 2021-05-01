@@ -6,7 +6,7 @@ $idpengguna=$_SESSION['idpengguna'];
 ?>
 
 <head>
-    <link rel="stylesheet" href="koleksikuizgurustyle.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="koleksisoalankuizstyle.css?v=<?php echo time(); ?>">
     <title>Laman Utama</title>
 </head>
     <!-- header mula -->
@@ -17,8 +17,9 @@ $idpengguna=$_SESSION['idpengguna'];
             </div>
     <!-- header tamat -->
             <div class="maincontent">
-                <div class="title">KOLEKSI KUIZ</div>
-                <div class="tambahkuiz"><a href="tambahkuiz.php">Tambah Kuiz</a></div>
+                <div class="title">KOLEKSI SOALAN KUIZ</div>
+                <div class="tambahsoalan"><a href="tambahsoalan.php" class="fas fa-plus" style="font-size: 20px;"></a></div>
+                <div class="balik"><a href="koleksikuizguru.php">Balik</a></div>
                 <div class="separator"></div>
                 <div class="detailbox">                     
                     <!-- search bar mula -->
@@ -56,7 +57,6 @@ $idpengguna=$_SESSION['idpengguna'];
                                             <td><?php echo $rows['idtopik'];?></td>
                                             <td><?php echo $rows['topik'];?></td>
                                             <td>
-                                                <a href="koleksisoalankuiz.php" class="koleksisoalankuiz"><i class="fas fa-eye"></i></a>
                                                 <a href="kemaskinikuiz.php?idtopik=<?php echo $rows['idtopik']; ?>" class="kemaskinikuiz">Kemas Kini</a>
                                                 <a href="hapuskankuiz.php?idtopik=<?php echo $rows['idtopik']; ?>" class="hapuskuiz">Hapuskan</a>
                                             </td>
