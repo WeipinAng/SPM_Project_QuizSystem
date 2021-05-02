@@ -6,7 +6,7 @@ $idpengguna=$_SESSION['idpengguna'];
 ?>
 
 <head>
-    <link rel="stylesheet" href="koleksisoalankuizstyle.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/koleksisoalankuizstyle.css?v=<?php echo time(); ?>">
     <title>Laman Utama</title>
 </head>
     <!-- header mula -->

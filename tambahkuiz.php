@@ -6,7 +6,7 @@ $idpengguna=$_SESSION['idpengguna'];
 ?>
 
 <head>
-    <link rel="stylesheet" href="tambahkuizstyle.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/tambahkuizstyle.css?v=<?php echo time(); ?>">
 </head>
         <div class="space">
             <div class="header">
