@@ -10,7 +10,7 @@
 </head>
 
 <?php
-if ($_SESSION['level']=="ADMIN"){
+if ($_SESSION['level']=="admin"){
 ?>
 <body>
     <!-- sidebar untuk admin mula -->
@@ -31,7 +31,7 @@ if ($_SESSION['level']=="ADMIN"){
     <!-- sidebar untuk admin tamat -->
 
 <?php
-} else if($_SESSION['level']=="GURU") {
+} else if($_SESSION['level']=="guru") {
 ?>
 <body>
     <!-- sidebar untuk guru mula -->
@@ -46,7 +46,7 @@ if ($_SESSION['level']=="ADMIN"){
                 <li><a href="lamanutamaguru.php"><i class="fas fa-info-circle"></i>Profil</a></li>
                 <li><a href="koleksikuizguru.php"><i class="fab fa-wpforms"></i>Koleksi Kuiz</a></li>
                 <li><a href="prestasikuiz.php"><i class="fas fa-table"></i>Data Prestasi</a></li>
-                <li><a href="prestasikuiz.php"><i class="fas fa-file-import"></i>Import</a></li>
+                <li><a href="importkuiz.php"><i class="fas fa-file-import"></i>Import</a></li>
             </ul>
         </div>
     <!-- sidebar untuk guru tamat -->
