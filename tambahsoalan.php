@@ -1,7 +1,7 @@
 <?php
 require 'connect.php';
 require 'keselamatan.php';
-include('template/sidebarguru.php');
+include('template/sidebar.php');
 $idpengguna=$_SESSION['idpengguna'];
 ?>
 
