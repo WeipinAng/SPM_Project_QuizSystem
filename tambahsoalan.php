@@ -7,6 +7,7 @@ $idpengguna=$_SESSION['idpengguna'];
 
 <head>
     <link rel="stylesheet" href="css/tambahsoalanstyle.css?v=<?php echo time(); ?>">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
         <div class="space">
             <div class="header">
@@ -17,12 +18,11 @@ $idpengguna=$_SESSION['idpengguna'];
                 <div class="title">TAMBAH SOALAN BAHARU</div>
                 <div class="balik"><a href="koleksikuizguru.php">Balik</a></div>
                 <div class="separator"></div>
-                <div class="detailbox">
-                    
+                <div class="detailbox">                   
                     <h3>
                     <!-- output borang pendaftaran -->
-                    <form name="question" class="quizform" action="prosestambahsoalan.php" method="post" spellcheck="false">
-                        <div class="forminputsoalan">
+                    <form id="formsoalan" name="question" class="quizform" action="prosestambahsoalan.php" method="post" spellcheck="false">
+                        <div id="forminputsoalan" class="forminputsoalan">
                             <input class="soalan" type="text" name="soal" placeholder="Soalan"
                             onkeypress='return event.charCode>=32 && event.charCode<=125' required></input>
                         </div>
@@ -33,7 +33,7 @@ $idpengguna=$_SESSION['idpengguna'];
                             <p>A</p>
                         </div>
 
-                        <div class="forminput">
+                        <div class="forminput2">
                             <input type="text" name="plhjwp" placeholder="Pilihan 2"
                             onkeypress='return event.charCode>=32 && event.charCode<=125' required>
                             <p>B</p>
@@ -45,7 +45,7 @@ $idpengguna=$_SESSION['idpengguna'];
                             <p>C</p>
                         </div>
 
-                        <div class="forminput">
+                        <div class="forminput2">
                             <input type="text" name="plhjwp" placeholder="Pilihan 4"
                             onkeypress='return event.charCode>=32 && event.charCode<=125' required>
                             <p>D</p>
@@ -65,11 +65,59 @@ $idpengguna=$_SESSION['idpengguna'];
                             </select>
                         </div>
 
+                        <div id="tambahform"></div>
+                        <button id="tambahform" class="tambahform" type="button">Tambah Soalan</button>
+                        <button id="hapusform" class="hapusform" type="button">Hapus</button>
+
                         <div class="button">
                             <button class="submit" type="submit">Daftar Soalan</button>
                             <button class="reset" type="reset">Reset</button>
                         </div>
-                    </form>                           
+                    </form>
+                    
+                    <script type="text/javascript">
+                        // tambah form
+                        $("#tambahform").click(function (){
+                            var html = '';
+                            
+                            html += '<div id="forminputsoalan" class="forminputsoalan">';
+                            html += '<input class="soalan" type="text" name="soal" placeholder="Soalan" onkeypress='return event.charCode>=32 && event.charCode<=125' required></input>';
+                            html += '</div>';
+                            html += '<div class="forminput">';
+                            html += '<input type="text" name="plhjwp" placeholder="Pilihan 1" onkeypress='return event.charCode>=32 && event.charCode<=125' required>';
+                            html += '<p>A</p>';
+                            html += '</div>';
+                            html += '<div class="forminput2">';
+                            html += '<input type="text" name="plhjwp" placeholder="Pilihan 2" onkeypress='return event.charCode>=32 && event.charCode<=125' required>';
+                            html += '<p>B</p>';
+                            html += '</div>';
+                            html += '<div class="forminput">';
+                            html += '<input type="text" name="plhjwp" placeholder="Pilihan 3" onkeypress='return event.charCode>=32 && event.charCode<=125' required>';
+                            html += '<p>C</p>';
+                            html += '</div>';
+                            html += '<div class="forminput2">';
+                            html += '<input type="text" name="plhjwp" placeholder="Pilihan 4" onkeypress='return event.charCode>=32 && event.charCode<=125' required>';
+                            html += '<p>D</p>';
+                            html += '</div>';
+                            html += '<div class="forminput">';
+                            html += '<select class="jawapan" name="jwp" required>';
+                            html += '<option value="" disabled selected hidden>Jawapan</option>';
+                            html += '<option value="A">Jawapan: A</option>';
+                            html += '<option value="B">Jawapan: B</option>';
+                            html += '<option value="C">Jawapan: C</option>';
+                            html += '<option value="D">Jawapan: D</option>';
+                            html += '</select>';
+                            html += '</div>';
+
+                            $('#tambahform').append(html);
+                        });
+
+                        // hapus form
+                        $(document).on('click', '#hapusform', function () {
+                            $(this).closest('#forminputsoalan').remove();
+                        });
+                    </script>
+
                     </h3>
                 </div>                 
                 </div>

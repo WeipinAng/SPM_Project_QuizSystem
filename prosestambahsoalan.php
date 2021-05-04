@@ -16,7 +16,7 @@ if(isset($_POST['submit'])){
 
     $hasil=mysqli_query($conn,$tambahsoalan);
     
-    if ($hasil==1){
+    if ($hasil==TRUE){
         $query2 = mysqli_query($conn, "SELECT idpilihan FROM pilihan ORDER BY idpilihan DESC LIMIT 1");
         $fetch2 = mysqli_fetch_assoc($query2);
         $idpilihansebelum = $fetch2['idpilihan'];
@@ -28,7 +28,7 @@ if(isset($_POST['submit'])){
         $tambahpilihan = "INSERT INTO pilihan (idpilihan,plhjwp,jwp,idsoal) VALUES ('$idpilihanbaharu','$plhjwp','$jwp','$idsoal')";
 
         $hasil2=mysqli_query($conn,$tambahpilihan);
-        if ($hasil2==1){
+        if ($hasil2==TRUE){
             echo"<script>alert('Penambahan Soalan Berjaya.');window.location='tambahsoalan.php'</script>";
         }
     }else{
