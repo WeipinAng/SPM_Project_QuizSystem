@@ -48,6 +48,7 @@
 
                 <div class="register">
                     <br>Masih belum berdaftar? <a href="daftar.php">Daftar di sini</a></h5></br>
+                    <br><em>Jika anda merupakan admin, sila terus login dengan idpengguna dan kata laluan yang telah ditetapkan.</em>
                 </div>
             </form>
         </div>

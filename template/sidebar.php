@@ -10,7 +10,7 @@
 </head>
 
 <?php
-if ($_SESSION['level']=="admin"){
+if ($_SESSION['idpengguna']=="G0000"){
 ?>
 <body>
     <!-- sidebar untuk admin mula -->
@@ -23,15 +23,15 @@ if ($_SESSION['level']=="admin"){
             <h5><center>Guru</center></h5>
             <ul>
                 <li><a href="lamanutamaguru.php"><i class="fas fa-info-circle"></i>Profil</a></li>
-                <li><a href="koleksikuizguru.php"><i class="fab fa-table"></i>Senarai Guru</a></li>
-                <li><a href="prestasikuiz.php"><i class="fas fa-table"></i>Senarai Murid</a></li>
-                <li><a href="prestasikuiz.php"><i class="fas fa-file-database"></i>Statistik</a></li>
+                <li><a href="senaraiguru.php"><i class="fas fa-table"></i>Senarai Guru</a></li>
+                <li><a href="senaraimurid.php"><i class="fas fa-table"></i>Senarai Murid</a></li>
+                <li><a href="prestasikuiz.php"><i class="fas fa-database"></i>Statistik</a></li>
             </ul>
         </div>
     <!-- sidebar untuk admin tamat -->
 
 <?php
-} else if($_SESSION['level']=="guru") {
+} else if($_SESSION['peranan']=="guru") {
 ?>
 <body>
     <!-- sidebar untuk guru mula -->

@@ -1,0 +1,116 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #f3f5f9;
+}
+
+.space {
+    width: 100%;
+    margin-left: 200px;
+}
+
+.header {
+    padding: 20px;
+    background: #fff;
+    color: #000000;
+    border-bottom: 1px solid #e0e4e8;
+}
+
+.header h2 {
+    color: #353A5F;
+    text-shadow: 0 0 10px #9EBAF3;
+}
+
+.logoutbutton {
+    padding: 10px;
+    background-image: linear-gradient(90deg,#6CD0FF,#1C2E4C);
+    text-shadow: 0 0 10px #fff;
+    float: right;
+    margin-top: -30px;
+    margin-right: 10px;
+    font-size: 15px;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+}
+
+.logoutbutton a:visited {
+    color: #fff;
+}
+
+.maincontent {
+    margin: 20px;
+    color: #000000;
+    line-height: 25px;
+}
+
+.maincontent div {
+    margin-bottom: 20px;
+}
+
+.title {
+    font-weight: bold;
+    color: #2E4053;
+}
+
+.separator {
+    height: 5px;
+    background-image: linear-gradient(108.9deg,  rgba(251,140,0,1) 11.2%, rgba(0,139,155,1) 88.9%);
+}
+
+.detailbox {
+    height: 400px;
+    position: relative;
+    background: #fff;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 40px;
+}
+
+.senaraiguru {
+    width: 100%;
+    table-layout: auto;
+}
+
+table tr th {
+    border-bottom: 1px solid black;
+    padding: 1%;
+    text-align: left;
+}
+
+table tr td {
+    padding: 1%;
+}
+
+.kemaskiniguru {
+    background-color: #60a3bc;
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.kemaskiniguru:hover {
+    background-color: #3c6382;
+}
+
+.hapusguru {
+    background-color: #e55039;
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.hapusguru:hover {
+    background-color: #eb2f06;
+}

@@ -2,11 +2,10 @@
 require 'connect.php';
 require 'keselamatan.php';
 include('template/sidebar.php');
-$idpengguna=$_SESSION['idpengguna'];
 ?>
 
 <head>
-    <link rel="stylesheet" href="css/koleksikuizgurustyle.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="senaraimuridstyle.css?v=<?php echo time(); ?>">
     <title>Laman Utama</title>
 </head>
     <!-- header mula -->
@@ -17,26 +16,26 @@ $idpengguna=$_SESSION['idpengguna'];
             </div>
     <!-- header tamat -->
             <div class="maincontent">
-                <div class="title">KOLEKSI KUIZ</div>
-                <div class="tambahkuiz"><a href="tambahkuiz.php">Tambah Kuiz</a></div>
+                <div class="title">SENARAI MURID BERDAFTAR</div>
                 <div class="separator"></div>
                 <div class="detailbox">                     
                     <!-- search bar mula -->
                     
                     <!-- search bar tamat -->    
-                    <!-- output koleksi kuiz -->  
+                    <!-- output senarai guru -->
                     <?php
                         //output butiran topik
-                        $tambah = "SELECT * FROM topik";
+                        $tambah = "SELECT * FROM pengguna WHERE peranan='murid' ORDER BY nama ASC";
                         $hasil = mysqli_query($conn,$tambah);                       
                         ?>
-                        <table class="koleksikuiz" autowidth="false">
+                        <table class="senaraimurid" autowidth="false">
                             <thead>
                                 <tr>
                                     <th style="width: 10%;">Bil.</th>
-                                    <th style="width: 20%;">Id Topik</th>
-                                    <th style="width: 40%;">Topik</th>
-                                    <th style="width: 30%;">Tindakan</th>
+                                    <th style="width: 30%;">Nama Murid</th>
+                                    <th style="width: 15%;">ID Pengguna</th>
+                                    <th style="width: 20%;">Kata Laluan</th>
+                                    <th style="width: 25%;">Tindakan</th>
                                 </tr>
                             </thead>
                             <?php
@@ -52,12 +51,12 @@ $idpengguna=$_SESSION['idpengguna'];
                                         <!-- papar dalam bentuk jadual -->
                                         <tr>
                                             <td><?php echo $bil++;?></td>
-                                            <td><?php echo $rows['idtopik'];?></td>
-                                            <td><?php echo $rows['topik'];?></td>
+                                            <td><?php echo $rows['nama'];?></td>
+                                            <td><?php echo $rows['idpengguna'];?></td>
+                                            <td><?php echo $rows['katalaluan'];?></td>
                                             <td>
-                                                <a href="koleksisoalankuiz.php" class="koleksisoalankuiz"><i class="fas fa-eye"></i></a>
-                                                <a href="kemaskinikuiz.php?idtopik=<?php echo $rows['idtopik']; ?>" class="kemaskinikuiz">Kemas Kini</a>
-                                                <a href="hapuskankuiz.php?idtopik=<?php echo $rows['idtopik']; ?>" class="hapuskuiz" onclick="return confirm('Adakah anda ingin hapuskan kuiz ini?')">Hapuskan</a>
+                                                <a href="kemaskinimurid.php?idtopik=<?php echo $rows['idpengguna']; ?>" class="kemaskinimurid">Kemas Kini</a>
+                                                <a href="hapuskanmurid.php?idtopik=<?php echo $rows['idpengguna']; ?>" class="hapusmurid" onclick="return confirm('Adakah anda ingin hapuskan kesemua rekod murid ini?')">Hapuskan</a>
                                             </td>
                                         </tr>
                                         <?php endwhile; }} ?>
