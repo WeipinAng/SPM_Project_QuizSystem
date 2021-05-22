@@ -1,7 +1,7 @@
 <?php
 require 'connect.php';
 require 'keselamatan.php';
-$idpengguna=$_SESSION['idpengguna'];
+$idpengguna = $_SESSION['idpengguna'];
 
 //pilih idtopik untuk dihapuskan
 $idtopik = $_GET['idtopik'];

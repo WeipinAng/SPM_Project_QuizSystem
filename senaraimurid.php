@@ -61,6 +61,7 @@ include('template/sidebar.php');
                                         </tr>
                                         <?php endwhile; }} ?>
                         </table>
+                        <br><br>Jumlah Rekod: <?php echo $bil-1;?><br>
                         <?php
                             function pre_r($array){
                                 echo '<pre>';

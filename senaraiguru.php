@@ -58,7 +58,8 @@ include('template/sidebar.php');
                             </td>
                         </tr>
                         <?php $bil++;} ?>
-                        </table>
+                    </table>
+                    <br><br>Jumlah Rekod: <?php echo $bil-1;?><br>
                     </div>
             </div>
         </div>
