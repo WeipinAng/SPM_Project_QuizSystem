@@ -17,11 +17,11 @@ include('template/sidebar.php');
     <!-- header tamat -->
             <div class="maincontent">
                 <div class="title">SENARAI MURID BERDAFTAR</div>
-                <div class="separator"></div>
-                <div class="detailbox">                     
-                    <!-- search bar mula -->
+                <!-- search bar mula -->
                     
-                    <!-- search bar tamat -->    
+                <!-- search bar tamat -->
+                <div class="separator"></div>
+                <div class="detailbox">    
                     <!-- output senarai guru -->
                     <?php
                         //output butiran topik
