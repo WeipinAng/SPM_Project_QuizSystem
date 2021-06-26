@@ -6,7 +6,7 @@ $idpengguna=$_SESSION['idpengguna'];
 ?>
 
 <head>
-    <link rel="stylesheet" href="css/importkuiz.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="css/importcsvstyle.css?v=<?php echo time(); ?>">
     <title>Laman Utama</title>
 </head>
     <!-- header mula -->
@@ -21,9 +21,9 @@ $idpengguna=$_SESSION['idpengguna'];
                 <div class="separator"></div>
                 <div class="detailbox">
                     <h3>
-                    <form class="uploadform" action="prosesimportkuiz.php" method="post" name="upload_excel" enctype="multipart/form-data">
+                    <form class="uploadform" action="prosesimportcsv.php" method="post" name="upload_excel" enctype="multipart/form-data">
                         <div class="forminput">
-                            <p style="font-size: 14px">Kemudahan untuk mendaftar nama murid secara berkelompok</p><br>
+                            <p style="font-size: 14px">- Kemudahan untuk mendaftar nama murid secara berkelompok</p><br>
                             <p style="font-size: 14px">Pilih lokasi fail dalam bentuk CSV/Excel:</p>
                         </div>
                         <!-- Memanggil Fail CSV untuk melaksanakan arahan IMPORT -->
