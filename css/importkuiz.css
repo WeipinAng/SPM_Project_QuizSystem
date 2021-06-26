@@ -69,57 +69,17 @@ a {
 }
 
 .detailbox {
-    height: 400px;
     position: relative;
     background: #fff;
     background-color: rgba(255, 255, 255, 0.7);
     padding: 40px;
 }
 
-p {
-    position: absolute;
+.forminput p {
     top: 5%;
     left: 4%;
     font-size: 20px;
     color: #34495e ;
-}
-
-label {
-    position: absolute;
-    top: 30%;
-    left: 4%;
-    font-size: 30px;
-    color: #34495e ;
-}
-
-.browse {
-    position: absolute;
-    top:50%;
-    left: 50px;
-    height: 10%;
-    width: 40%;
-    background: white;
-    color: #34495e;
-    font-size: 20px;
-    border: none;
-    font-size: 25px;
-}
-
-.button {
-    display: block;
-    text-align: center;
-    margin-top: 50px;
-    color: #000;
-    padding: 10px 30px;
-    margin: 20px 25px 5px auto;
-    font-size: 0.8em;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: bold;
-    text-shadow: 0 0 10px #fff;
-    background-image: linear-gradient(to right,#FFB330, #FFFCCE);
-    cursor: pointer;
-    border-radius: 30px;
 }
 
 input,
@@ -135,4 +95,49 @@ input {
     color: #000000;
     letter-spacing: 0.5px;
     padding: 14px 64px;
+}
+
+label {
+    color: #fff;
+    padding: 10px 30px;
+    margin: 10px auto;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    text-shadow: 0 0 10px #fff;
+    background-image: linear-gradient(to right, #534666, #CD7672);
+    cursor: pointer;
+    border-radius: 0.3rem;
+}
+
+#filechosen {
+    margin-left: 15px;
+    font-size: 15px;
+}
+
+button.submit {    
+    padding: 10px 30px;
+    margin: 10px 0 0 50px;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    background-image: linear-gradient(to right, #7697A0, #DDDDDA);
+    cursor: pointer;
+}
+
+.import {
+    width: 100%;
+    table-layout: auto;
+}
+
+table tr th {
+    border-bottom: 1px solid black;
+    padding: 1%;
+    text-align: left;
+}
+
+table tr td {
+    padding: 1%;
 }
