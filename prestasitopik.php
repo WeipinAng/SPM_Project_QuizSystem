@@ -50,7 +50,7 @@ $idpengguna=$_SESSION['idpengguna'];
                                 <td><?php echo $infotopik['topik'];?></td>
                                 <td><?php echo $infobiljawab['bil'];?></td>
                                 <td>
-                                    <a href="laporanguru.php?idtopik=<?php echo $infotopik['idtopik']; ?>" class="laporan">Buka Laporan</a>
+                                    <a href="laporanprestasitopik.php?idtopik=<?php echo $infotopik['idtopik']; ?>" class="laporan">Buka Laporan</a>
                                 </td>
                             </tr>
                                 <?php } ?>

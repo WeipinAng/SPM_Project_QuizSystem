@@ -46,7 +46,7 @@ if ($_SESSION['idpengguna']=="G0000"){
                 <li><a href="lamanutamaguru.php"><i class="fas fa-info-circle"></i>Profil</a></li>
                 <li><a href="koleksikuizguru.php"><i class="fab fa-wpforms"></i>Koleksi Kuiz</a></li>
                 <li><a href="prestasitopik.php"><i class="fas fa-table"></i>Prestasi</a></li>
-                <li><a href="importcsv.php"><i class="fas fa-file-import"></i>Import</a></li>
+                <li><a href="importmurid.php"><i class="fas fa-file-import"></i>Import</a></li>
             </ul>
         </div>
     <!-- sidebar untuk guru tamat -->
@@ -66,7 +66,7 @@ if ($_SESSION['idpengguna']=="G0000"){
             <ul>
                 <li><a href="lamanutamamurid.php"><i class="fas fa-info-circle"></i>Profil</a></li>
                 <li><a href="koleksikuizmurid.php"><i class="fab fa-wpforms"></i>Koleksi Kuiz</a></li>
-                <li><a href="prestasikuiz.php"><i class="fas fa-table"></i>Prestasi</a></li>
+                <li><a href="skorindividu.php"><i class="fas fa-table"></i>Prestasi</a></li>
             </ul>
         </div>
     <!-- sidebar untuk murid tamat -->

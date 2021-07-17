@@ -57,7 +57,7 @@ $idpengguna=$_SESSION['idpengguna'];
                                             <td>
                                                 <a href="koleksisoalankuiz.php" class="koleksisoalankuiz"><i class="fas fa-eye"></i></a>
                                                 <a href="kemaskinikuiz.php?idtopik=<?php echo $rows['idtopik']; ?>" class="kemaskinikuiz">Kemas Kini</a>
-                                                <a href="hapuskankuiz.php?idtopik=<?php echo $rows['idtopik']; ?>" class="hapuskuiz" onclick="return confirm('Adakah anda ingin hapuskan kuiz ini?')">Hapuskan</a>
+                                                <a href="hapuskantopik.php?idtopik=<?php echo $rows['idtopik']; ?>" class="hapuskuiz" onclick="return confirm('Adakah anda ingin hapuskan kuiz ini?')">Hapuskan</a>
                                             </td>
                                         </tr>
                                         <?php endwhile; }} ?>
