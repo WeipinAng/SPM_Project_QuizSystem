@@ -75,7 +75,27 @@ a {
     padding: 40px;
 }
 
-.skorindividu {
+.balik {
+    background-color: #58B19F;
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    float: right;
+    margin-top: -50px;
+    margin-right: 10px;
+}
+
+.balik:hover {
+    background-color: #079992;
+}
+
+.balik a:visited {
+    color: #fff;
+}
+
+.laporanprestasitopik {
     width: 100%;
     table-layout: auto;
 }

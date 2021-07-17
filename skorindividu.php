@@ -35,7 +35,7 @@ $idpengguna=$_SESSION['idpengguna'];
                         <?php
                             //output semua butiran
                             $no = 1;
-                            $data1 = mysqli_query($conn,"SELECT * FROM perekodan WHERE idpengguna='$idpengguna' ORDER BY tarikh desc limit 0,10");
+                            $data1 = mysqli_query($conn,"SELECT * FROM perekodan WHERE idpengguna='$idpengguna' ORDER BY tarikh DESC");
                             while($info1 = mysqli_fetch_array($data1)){
                                 //Jadual topik
                                 $datatopik = mysqli_query($conn,"SELECT * FROM topik WHERE idtopik='$info1[idtopik]'");
@@ -51,21 +51,21 @@ $idpengguna=$_SESSION['idpengguna'];
                                 $markahtopik = $gettopik['markah'];
                         ?>
                                 
-                            <!-- papar dalam bentuk jadual -->
-                            <tr>
-                                <td><?php echo $no++;?></td>
-                                <td><?php echo $gettopik['topik'];?></td>
-                                <td><?php
-                                    if($jenissoalan==1){
-                                        echo "MCQ/TF";
-                                    }else{
-                                        echo "FIB";
-                                    }?></td>
-                                <td><?php echo date('d-m-Y g:i A', strtotime($info1['tarikh']));?></td>
-                                <td><?php echo $info1['markah'];?></td>
-                                <td><?php echo number_format(($info1['markah']/$bilsoalan)*$markahtopik);?>%</td>
-                            </tr>
-                            <?php } ?>
+                        <!-- papar dalam bentuk jadual -->
+                        <tr>
+                            <td><?php echo $no++;?></td>
+                            <td><?php echo $gettopik['topik'];?></td>
+                            <td><?php
+                                if($jenissoalan==1){
+                                    echo "MCQ/TF";
+                                }else{
+                                    echo "FIB";
+                                }?></td>
+                            <td><?php echo date('d-m-Y g:i A', strtotime($info1['tarikh']));?></td>
+                            <td><?php echo $info1['skor'];?></td>
+                            <td><?php echo number_format(($info1['skor']/$bilsoalan)*$markahtopik);?>%</td>
+                        </tr>
+                        <?php } ?>
                     </table>
                     <br><br>Jumlah Rekod: <?php echo $no-1;?><br>
                     <?php
