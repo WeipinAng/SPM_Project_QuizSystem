@@ -26,7 +26,7 @@ if(isset($_POST['idpengguna'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <link rel="stylesheet" href="css/daftarstyle.css">
+    <link rel="stylesheet" type="text/css" href="css/daftarstyle.css?version=51">
     <title>Pendaftaran Pengguna Baharu</title>
 </head>
 <body>
@@ -98,11 +98,13 @@ if(isset($_POST['idpengguna'])){
                 </div>
 
                 <p class="notice"><br><em><b>Sila pastikan maklumat yang dimasukkan adalah betul sebelum melakukan pendaftaran.</em></b><br></p>
-
+                
                 <div class="button">
                     <button class="submit" type="submit">Daftar</button>
                     <button class="reset" type="reset">Reset</button>
                 </div>
+                <br><br>
+                <p class="balik"><a href="login.php">Klik sini untuk kembali ke halaman login</a></p>
             </form>
         </div>
     </div>

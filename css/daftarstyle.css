@@ -7,7 +7,7 @@
 
 .form-box {
     max-width: 650px;
-    height: 720px;
+    height: 800px;
     position: relative;
     margin: 6% auto;
     background: #fff;
@@ -159,4 +159,11 @@ button.reset {
     text-shadow: 0 0 10px #fff;
     background-image: linear-gradient(to right, #EFEB77, #F6AF04);
     cursor: pointer;
+}
+
+.balik {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
 }

@@ -54,10 +54,12 @@ $idpengguna=$_SESSION['idpengguna'];
                             }
 
                             $tambah = "INSERT INTO topik (idpengguna,idtopik,topik) VALUES ('$idpengguna','$idtopikbaharu','$topik')";
+                            $jumlahsoalan=$_POST['jumlahsoalan'];
+                            $idtopikbaharu=$_POST['idtopik'];
 
                             $hasil=mysqli_query($conn,$tambah);
                             if ($hasil){
-                                echo"<script>alert('Pendaftaran Kuiz Berjaya.');window.location='tambahsoalan.php'</script>";
+                                header("location:tambahsoalan.php?jumlahsoalan=$jumlahsoalan&idtopikbaharu=$idtopikbaharu");
                             }else{
                                 echo"<script>alert('Pendaftaran Kuiz Gagal.');window.location='tambahkuiz.php'</script>";
                             }
