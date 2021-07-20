@@ -117,19 +117,10 @@ a:visited {
 
 .forminput {
     position: relative;
-    width: 400px;
+    width: 700px;
     margin-bottom: 10px;
     margin-left: 50px;
     margin-right: 50px;
-}
-
-.forminput2 {
-    position: relative;
-    width: 400px;
-    margin-bottom: 20px;
-    margin-left: 490px;
-    margin-right: 50px;
-    margin-top: -67px;
 }
 
 input ~ p {
@@ -141,31 +132,19 @@ input ~ p {
     transition: color 0.4s;
 }
 
+input ~ input {
+    position: absolute;
+    left: 300px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 input:focus ~ p {
     color: #3d5c5c;
 }
 
 .jawapan {
     appearance: none;
-}
-
-select,
-button {
-    border: none;
-    outline: none;
-    font-size: 0.9em;
-}
-
-select {
-    width: 100%;
-    background: #e6e6e6;
-    letter-spacing: 0.5px;
-    padding: 14px 64px;
-}
-
-/*"invalid" works here because of the empty value in the placeholder option*/
-select:invalid {
-    color: #888;
 }
 
 .button {
@@ -185,7 +164,7 @@ input {
     background: #e0ebeb;
     color: #000000;
     letter-spacing: 0.5px;
-    padding: 14px 64px;
+    padding: 14px 65px;
 }
 
 button.submit {

@@ -6,6 +6,7 @@ $idpengguna=$_SESSION['idpengguna'];
 
 //Menerima pemboleh ubah dari halaman tambahkuiz.php
 $jumlahsoalan=$_GET['jumlahsoalan'];
+$idtopikbaharu=$_GET['idtopikbaharu'];
 
 //Jika borang dihantar, masukkan data ke pangkalan data
 if(isset($_POST["submit"])){
@@ -34,6 +35,7 @@ if(isset($_POST["submit"])){
         $next = $total+1;
 
         $tambah = "INSERT INTO soalan (idsoal,nosoal,soal,idtopik) VALUES ('$idsoalbaharu','$next','$soal','$idtopikbaharu)";
+        $hasil1=mysqli_query($conn,$tambah);
     
         //ulangan 4 pilihan bagi setiap soalan
         for($j=0;$j<4;$j++){        
@@ -52,19 +54,15 @@ if(isset($_POST["submit"])){
             $idpilihansebelum = $fetch3['idpilihan'];
             $pengubah3 = (int)substr($idpilihansebelum,-1);
             $pengubah3 ++;
-            $idpilihanbaharu = "S".$pengubah3;
+            $idpilihanbaharu = "P".$pengubah3;
         
             //simpan rekod baharu dalam jadual pilihan
             $sql = "INSERT INTO pilihan (idpilihan,plhjwp,jwp,idsoal) VALUES('$idpilihanbaharu','$plhjwp','$jawapan','$idsoalbaharu')";
-            }
-    }
-    }
-        $hasil=mysqli_query($conn,$tambah,$sql);
-        if ($hasil){
-            echo"<script>alert('Pendaftaran Soalan Berjaya.');window.location='tambahkuiz.php'</script>";
-        }else{
-            echo"<script>alert('Pendaftaran Kuiz Gagal.');window.location='tambahkuiz.php'</script>";
+            $hasil2=mysqli_query($conn,$sql);
         }
+    }
+    echo"<script>alert('Pendaftaran Soalan Berjaya.');window.location='tambahkuiz.php'</script>";
+    } 
 }
 ?>
 
@@ -112,42 +110,32 @@ if(isset($_POST["submit"])){
                                 for($j=0;$j<1;$j++){
                             ?>
                             <!--Pilihan-->
-                                <div class="forminput">
-                                    <input type="text" name="plhjwp[<?php echo $i;?>][<?php echo $j;?>]" placeholder="Pilihan 1"
-                                    onkeypress='return event.charCode>=32 && event.charCode<=125' required>
+                                <div class="forminput">                                    
+                                    <input type="text" name="plhjwp[<?php echo $i;?>][<?php echo $j;?>]" placeholder="A. Pilihan 1"
+                                    onkeypress='return event.charCode>=32 && event.charCode<=125' required/>
                                     <p>A</p>
+                                    <input type="radio" name="jwp[<?php echo $i;?>]" value="<?php echo($i.$j);?>" required> 
                                 </div>
 
-                                <div class="forminput2">
-                                    <input type="text" name="plhjwp[<?php echo $i;?>][<?php echo $j;?>]" placeholder="Pilihan 2"
+                                <div class="forminput">
+                                    <input type="text" name="plhjwp[<?php echo $i;?>][<?php echo $j;?>]" placeholder="B. Pilihan 2"
                                     onkeypress='return event.charCode>=32 && event.charCode<=125' required>
                                     <p>B</p>
+                                    <input type="radio" name="jwp[<?php echo $i;?>]" value="<?php echo($i.$j);?>" required>
                                 </div>
 
                                 <div class="forminput">
-                                    <input type="text" name="plhjwp[<?php echo $i;?>][<?php echo $j;?>]" placeholder="Pilihan 3"
+                                    <input type="text" name="plhjwp[<?php echo $i;?>][<?php echo $j;?>]" placeholder="C. Pilihan 3"
                                     onkeypress='return event.charCode>=32 && event.charCode<=125' required>
                                     <p>C</p>
-                                </div>
-
-                                <div class="forminput2">
-                                    <input type="text" name="plhjwp[<?php echo $i;?>][<?php echo $j;?>]" placeholder="Pilihan 4"
-                                    onkeypress='return event.charCode>=32 && event.charCode<=125' required>
-                                    <p>D</p>
+                                    <input type="radio" name="jwp[<?php echo $i;?>]" value="<?php echo($i.$j);?>" required>
                                 </div>
 
                                 <div class="forminput">
-                                    <select class="jawapan" name="jwp[<?php echo $i;?>]" value="<?php echo($i.$j);?>" required>
-                                    <!-- using an empty value attribute on the "placeholder" option-->
-                                    <!-- "disabled" option stops it from being selected with both mouse and keyboard-->
-                                    <!-- When the "select" element is required, it allows use of the ":invalid" CSS pseudo-class which allows you to style the "select" element when in its "placeholder" state-->
-                                    <!-- "hidden" element: the option is visible in dropdown, but it is not selectable-->
-                                    <option value="" disabled selected hidden>Jawapan</option>
-                                    <option value="A">Jawapan: A</option>
-                                    <option value="B">Jawapan: B</option>
-                                    <option value="C">Jawapan: C</option>
-                                    <option value="D">Jawapan: D</option>
-                                    </select>
+                                    <input type="text" name="plhjwp[<?php echo $i;?>][<?php echo $j;?>]" placeholder="D. Pilihan 4"
+                                    onkeypress='return event.charCode>=32 && event.charCode<=125' required>
+                                    <input type="radio" name="jwp[<?php echo $i;?>]" value="<?php echo($i.$j);?>" required>
+                                    <p>D</p>
                                 </div>
                             <?php
                                 }
@@ -157,7 +145,7 @@ if(isset($_POST["submit"])){
                         ?>
 
                         <div class="button">
-                            <button class="submit" type="submit">Daftar Soalan</button>
+                            <button class="submit" type="submit" name="submit">Daftar Soalan</button>
                             <button class="reset" type="reset">Reset</button>
                         </div>
                     </form>
