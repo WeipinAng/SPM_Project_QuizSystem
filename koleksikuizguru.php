@@ -2,6 +2,7 @@
 require 'connect.php';
 require 'keselamatan.php';
 include('template/sidebar.php');
+
 $idpengguna=$_SESSION['idpengguna'];
 ?>
 
@@ -20,10 +21,7 @@ $idpengguna=$_SESSION['idpengguna'];
                 <div class="title">KOLEKSI KUIZ</div>
                 <div class="tambahkuiz"><a href="tambahkuiz.php">Tambah Kuiz</a></div>
                 <div class="separator"></div>
-                <div class="detailbox">                     
-                    <!-- search bar mula -->
-                    
-                    <!-- search bar tamat -->    
+                <div class="detailbox">
                     <!-- output koleksi kuiz -->  
                     <?php
                         //output butiran topik
@@ -34,9 +32,9 @@ $idpengguna=$_SESSION['idpengguna'];
                             <thead>
                                 <tr>
                                     <th style="width: 10%;">Bil.</th>
-                                    <th style="width: 20%;">Id Topik</th>
                                     <th style="width: 40%;">Topik</th>
-                                    <th style="width: 30%;">Tindakan</th>
+                                    <th style="width: 25%;">Pengurusan Topik</th>
+                                    <th style="width: 25%;">Pengurusan Soalan</th>
                                 </tr>
                             </thead>
                             <?php
@@ -52,12 +50,14 @@ $idpengguna=$_SESSION['idpengguna'];
                                         <!-- papar dalam bentuk jadual -->
                                         <tr>
                                             <td><?php echo $bil++;?></td>
-                                            <td><?php echo $rows['idtopik'];?></td>
                                             <td><?php echo $rows['topik'];?></td>
                                             <td>
-                                                <a href="koleksisoalankuiz.php" class="koleksisoalankuiz"><i class="fas fa-eye"></i></a>
-                                                <a href="kemaskinikuiz.php?idtopik=<?php echo $rows['idtopik']; ?>" class="kemaskinikuiz">Kemas Kini</a>
+                                                <a href="kemaskinitopik.php?idtopik=<?php echo $rows['idtopik']; ?>" class="kemaskinikuiz">Kemas Kini</a>
                                                 <a href="hapuskantopik.php?idtopik=<?php echo $rows['idtopik']; ?>" class="hapuskuiz" onclick="return confirm('Adakah anda ingin hapuskan kuiz ini?')">Hapuskan</a>
+                                            </td>
+                                            <td>
+                                                <a href="koleksisoalankuiz.php" class="koleksisoalankuiz"><i class="fas fa-eye"></i></a>
+                                                <a href="tambahsoalan.php" class="tambahsoalan">Tambah</a>
                                             </td>
                                         </tr>
                                         <?php endwhile; }} ?>

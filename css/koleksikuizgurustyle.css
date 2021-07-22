@@ -110,18 +110,6 @@ table tr td {
     padding: 1%;
 }
 
-.koleksisoalankuiz {
-    background-color: #f6b93b;
-    padding: 5px;
-    color: white;
-    text-decoration: none;
-    font-size: 15px;
-}
-
-.koleksisoalankuiz:hover {
-    background-color: #fa983a;
-}
-
 .kemaskinikuiz {
     background-color: #60a3bc;
     padding: 5px;
@@ -144,4 +132,28 @@ table tr td {
 
 .hapuskuiz:hover {
     background-color: #eb2f06;
+}
+
+.koleksisoalankuiz {
+    background-color: #f6b93b;
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.koleksisoalankuiz:hover {
+    background-color: #fa983a;
+}
+
+.tambahsoalan {
+    background-color: #ccae62;
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.tambahsoalan:hover {
+    background-color: #cc8e35;
 }

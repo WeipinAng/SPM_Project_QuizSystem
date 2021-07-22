@@ -115,7 +115,7 @@ a {
     color: #fff;
 }
 
-.koleksikuiz {
+.koleksisoalankuiz {
     width: 100%;
     table-layout: auto;
 }
@@ -130,19 +130,7 @@ table tr td {
     padding: 1%;
 }
 
-.koleksisoalankuiz {
-    background-color: #f6b93b;
-    padding: 5px;
-    color: white;
-    text-decoration: none;
-    font-size: 15px;
-}
-
-.koleksisoalankuiz:hover {
-    background-color: #fa983a;
-}
-
-.kemaskinikuiz {
+.kemaskinisoalan {
     background-color: #60a3bc;
     padding: 5px;
     color: white;
@@ -150,11 +138,11 @@ table tr td {
     font-size: 15px;
 }
 
-.kemaskinikuiz:hover {
+.kemaskinisoalan:hover {
     background-color: #3c6382;
 }
 
-.hapuskuiz {
+.hapussoalan {
     background-color: #e55039;
     padding: 5px;
     color: white;
@@ -162,6 +150,6 @@ table tr td {
     font-size: 15px;
 }
 
-.hapuskuiz:hover {
+.hapussoalan:hover {
     background-color: #eb2f06;
 }
