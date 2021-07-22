@@ -21,7 +21,7 @@ $idpengguna=$_SESSION['idpengguna'];
                 <div class="cetak"><a href="javascript: window.print()">CETAK LAPORAN</a></div>
                 <div class="separator"></div>
                 <div class="detailbox">
-                    <p style="font-size: 14px">LAPORAN: Bilangan Soalan Mengikut Topik</p><br>
+                    <p style="font-size: 16px">LAPORAN: Bilangan Soalan Mengikut Topik</p><br>
                     <?php
                         //output laporan statistik
                         $tambah = "SELECT * FROM topik";

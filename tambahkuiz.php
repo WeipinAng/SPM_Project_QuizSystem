@@ -14,7 +14,7 @@ $idpengguna=$_SESSION['idpengguna'];
                 <div class="logoutbutton"><a href="logout.php">Log Keluar</a></div>
             </div>
             <div class="maincontent">
-                <div class="title">TAMBAH KUIZ BAHARU</div>
+                <div class="title">PENDAFTARAN KUIZ BAHARU</div>
                 <div class="balik"><a href="koleksikuizguru.php">Balik</a></div>
                 <div class="separator"></div>
                 <div class="detailbox">                     
