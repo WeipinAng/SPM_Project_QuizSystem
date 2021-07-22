@@ -59,7 +59,7 @@ $idpengguna=$_SESSION['idpengguna'];
 
                             $hasil=mysqli_query($conn,$tambah);
                             if ($hasil){
-                                header("location:tambahsoalan2.php?jumlahsoalan=$jumlahsoalan&idtopikbaharu=$idtopikbaharu");
+                                header("location:tambahsoalan.php?jumlahsoalan=$jumlahsoalan&idtopik=$idtopikbaharu&topik=$topik");
                             }else{
                                 echo"<script>alert('Pendaftaran Kuiz Gagal.');window.location='tambahkuiz.php'</script>";
                             }

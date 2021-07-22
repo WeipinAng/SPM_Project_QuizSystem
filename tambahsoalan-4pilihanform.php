@@ -16,52 +16,52 @@ if(isset($_POST["submit"])){
     $ArrayPilihan=$_POST['plhjwp'];
     $ArrayJawapan=$_POST['jwp'];
     
-        //ulangan soalan berdasarkan jumlahsoalan yang dimasukkan oleh pengguna
-        for($i=0;$i<$jumlahsoalan;$i++){
-            $soal=$ArraySoalan[$i];
+    //ulangan soalan berdasarkan jumlahsoalan yang dimasukkan oleh pengguna
+    for($i=0;$i<$jumlahsoalan;$i++){
+        $soal=$ArraySoalan[$i];
 
-            //simpan rekod dalam jadual soalan
-            $soal = $_POST['soal'];
-            $query = mysqli_query($conn, "SELECT idsoal FROM soal ORDER BY idsoal DESC LIMIT 1");
-            $fetch = mysqli_fetch_assoc($query);
-            $idsoalsebelum = $fetch['idsoal'];
-            $pengubah = (int)substr($idsoalsebelum,-1);
-            $pengubah ++;
-            $idsoalbaharu = "S".$pengubah;
+        //simpan rekod dalam jadual soalan
+        $soal = $_POST['soal'];
+        $query = mysqli_query($conn, "SELECT idsoal FROM soal ORDER BY idsoal DESC LIMIT 1");
+        $fetch = mysqli_fetch_assoc($query);
+        $idsoalsebelum = $fetch['idsoal'];
+        $pengubah = (int)substr($idsoalsebelum,-1);
+        $pengubah ++;
+        $idsoalbaharu = "S".$pengubah;
 
-            $query2 = "SELECT * FROM soalan";
-            $nosoal = mysqli_query($conn,$query2);
-            $total = mysqli_num_rows($nosoal);
-            $next = $total+1;
+        $query2 = "SELECT * FROM soalan";
+        $nosoal = mysqli_query($conn,$query2);
+        $total = mysqli_num_rows($nosoal);
+        $next = $total+1;
 
-            $tambah = "INSERT INTO soalan (idsoal,nosoal,soal,idtopik) VALUES ('$idsoalbaharu','$next','$soal','$idtopikbaharu)";
-            $hasil1=mysqli_query($conn,$tambah);
-        
-            //ulangan 4 pilihan bagi setiap soalan
-            for($j=0;$j<4;$j++){        
-                //tentukan jawapan
-                if($ArrayJawapan[$i]==$i.$j){
-                    $jawapan=1;
-                }else{
-                    $jawapan=0;
-                }
-        
-                $plhjwp=$ArrayPilihan[$i][$j];
-
-                $idpilihan = $_POST['idpilihan'];
-                $query3 = mysqli_query($conn, "SELECT idpilihan FROM pilihan ORDER BY idpilihan DESC LIMIT 1");
-                $fetch3 = mysqli_fetch_assoc($query3);
-                $idpilihansebelum = $fetch3['idpilihan'];
-                $pengubah3 = (int)substr($idpilihansebelum,-1);
-                $pengubah3 ++;
-                $idpilihanbaharu = "P".$pengubah3;
-            
-                //simpan rekod baharu dalam jadual pilihan
-                $sql = "INSERT INTO pilihan (idpilihan,plhjwp,jwp,idsoal) VALUES('$idpilihanbaharu','$plhjwp','$jawapan','$idsoalbaharu')";
-                $hasil2=mysqli_query($conn,$sql);
+        $tambah = "INSERT INTO soalan (idsoal,nosoal,soal,idtopik) VALUES ('$idsoalbaharu','$next','$soal','$idtopikbaharu)";
+        $hasil1=mysqli_query($conn,$tambah);
+    
+        //ulangan 4 pilihan bagi setiap soalan
+        for($j=0;$j<4;$j++){        
+            //tentukan jawapan
+            if($ArrayJawapan[$i]==$i.$j){
+                $jawapan=1;
+            }else{
+                $jawapan=0;
             }
+    
+            $plhjwp=$ArrayPilihan[$i][$j];
+
+            $idpilihan = $_POST['idpilihan'];
+            $query3 = mysqli_query($conn, "SELECT idpilihan FROM pilihan ORDER BY idpilihan DESC LIMIT 1");
+            $fetch3 = mysqli_fetch_assoc($query3);
+            $idpilihansebelum = $fetch3['idpilihan'];
+            $pengubah3 = (int)substr($idpilihansebelum,-1);
+            $pengubah3 ++;
+            $idpilihanbaharu = "P".$pengubah3;
+        
+            //simpan rekod baharu dalam jadual pilihan
+            $sql = "INSERT INTO pilihan (idpilihan,plhjwp,jwp,idsoal) VALUES('$idpilihanbaharu','$plhjwp','$jawapan','$idsoalbaharu')";
+            $hasil2=mysqli_query($conn,$sql);
         }
-        echo"<script>alert('Pendaftaran Soalan Berjaya.');window.location='tambahkuiz.php'</script>";
+    }
+    echo"<script>alert('Pendaftaran Soalan Berjaya.');window.location='tambahkuiz.php'</script>";
     } 
 }
 ?>
@@ -107,14 +107,35 @@ if(isset($_POST["submit"])){
 
                             <!--Ulangan 4 pilihan bagi setiap soalan-->
                             <?php
-                                for($j=0;$j<4;$j++){
+                                for($j=0;$j<1;$j++){
                             ?>
                             <!--Pilihan-->
                                 <div class="forminput">                                    
-                                    <input type="text" name="plhjwp[<?php echo $i;?>][<?php echo $j;?>]" placeholder="Pilihan"
+                                    <input type="text" name="plhjwp[<?php echo $i;?>][<?php echo $j;?>]" placeholder="A. Pilihan 1"
                                     onkeypress='return event.charCode>=32 && event.charCode<=125' required/>
-                                    <p>-</p>
+                                    <p>A</p>
                                     <input type="radio" name="jwp[<?php echo $i;?>]" value="<?php echo($i.$j);?>" required> 
+                                </div>
+
+                                <div class="forminput">
+                                    <input type="text" name="plhjwp[<?php echo $i;?>][<?php echo $j;?>]" placeholder="B. Pilihan 2"
+                                    onkeypress='return event.charCode>=32 && event.charCode<=125' required>
+                                    <p>B</p>
+                                    <input type="radio" name="jwp[<?php echo $i;?>]" value="<?php echo($i.$j);?>" required>
+                                </div>
+
+                                <div class="forminput">
+                                    <input type="text" name="plhjwp[<?php echo $i;?>][<?php echo $j;?>]" placeholder="C. Pilihan 3"
+                                    onkeypress='return event.charCode>=32 && event.charCode<=125' required>
+                                    <p>C</p>
+                                    <input type="radio" name="jwp[<?php echo $i;?>]" value="<?php echo($i.$j);?>" required>
+                                </div>
+
+                                <div class="forminput">
+                                    <input type="text" name="plhjwp[<?php echo $i;?>][<?php echo $j;?>]" placeholder="D. Pilihan 4"
+                                    onkeypress='return event.charCode>=32 && event.charCode<=125' required>
+                                    <input type="radio" name="jwp[<?php echo $i;?>]" value="<?php echo($i.$j);?>" required>
+                                    <p>D</p>
                                 </div>
                             <?php
                                 }
