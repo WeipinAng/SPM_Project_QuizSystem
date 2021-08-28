@@ -18,7 +18,6 @@ $idpengguna=$_SESSION['idpengguna'];
     <!-- header tamat -->
             <div class="maincontent">
                 <div class="title">PRESTASI MURID BERDASARKAN TOPIK</div>
-                <div class="cetak"><a href="javascript: window.print()">CETAK LAPORAN</a></div>
                 <div class="separator"></div>
                 <div class="detailbox">
                     <?php
@@ -50,7 +49,7 @@ $idpengguna=$_SESSION['idpengguna'];
                                 <td><?php echo $infotopik['topik'];?></td>
                                 <td><?php echo $infobiljawab['bil'];?></td>
                                 <td>
-                                    <a href="laporanprestasitopik.php?idtopik=<?php echo $infotopik['idtopik']; ?>" class="laporan">Buka Laporan</a>
+                                    <a href="laporanprestasitopikguru.php?idtopik=<?php echo $infotopik['idtopik']; ?>" class="laporan">Buka Laporan</a>
                                 </td>
                             </tr>
                                 <?php } ?>

@@ -6,7 +6,7 @@ $idpengguna=$_SESSION['idpengguna'];
 ?>
 
 <head>
-    <link rel="stylesheet" href="laporanstatistikstyle.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="laporanstatistikadminstyle.css?v=<?php echo time(); ?>">
     <title>Laman Utama</title>
 </head>
     <!-- header mula -->
@@ -16,10 +16,11 @@ $idpengguna=$_SESSION['idpengguna'];
                 <div class="logoutbutton"><a href="logout.php">Log Keluar</a></div>
             </div>
     <!-- header tamat -->
-            <div class="maincontent">
+            <div class="maincontent" id="print">
                 <div class="title">LAPORAN STATISTIK</div>
-                <div class="cetak"><a href="javascript: window.print()">CETAK LAPORAN</a></div>
+                <button class="cetak" onclick="window.print();">Cetak Laporan</button>
                 <div class="separator"></div>
+
                 <div class="detailbox">
                     <p style="font-size: 16px">LAPORAN: Bilangan Soalan Mengikut Topik</p><br>
                     <?php

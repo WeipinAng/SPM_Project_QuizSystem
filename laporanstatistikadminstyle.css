@@ -90,7 +90,8 @@ table tr td {
     padding: 1%;
 }
 
-.cetak {
+
+button.cetak {
     background-color: #58B19F;
     padding: 5px;
     color: white;
@@ -106,21 +107,17 @@ table tr td {
     background-color: #079992;
 }
 
-.cetak a:visited {
-    color: #fff;
+@media print {
+* {
+    visibility: hidden;
 }
 
-.prestasi {
-    width: 100%;
-    table-layout: auto;
+#print * {
+    visibility: visible;
 }
 
-table tr th {
-    border-bottom: 1px solid black;
-    padding: 1%;
-    text-align: left;
+table{
+    width: 1000px;
 }
 
-table tr td {
-    padding: 1%;
 }

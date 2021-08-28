@@ -12,7 +12,7 @@ $infotopik = mysqli_fetch_array($topik);
 ?>
 
 <head>
-    <link rel="stylesheet" href="laporanprestasitopikstyle.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="laporanprestasitopikgurustyle.css?v=<?php echo time(); ?>">
     <title>Laman Utama</title>
 </head>
     <!-- header mula -->

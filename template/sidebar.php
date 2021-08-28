@@ -25,7 +25,7 @@ if ($_SESSION['idpengguna']=="G0000"){
                 <li><a href="lamanutamaguru.php"><i class="fas fa-info-circle"></i>Profil</a></li>
                 <li><a href="senaraiguru.php"><i class="fas fa-table"></i>Senarai Guru</a></li>
                 <li><a href="senaraimurid.php"><i class="fas fa-table"></i>Senarai Murid</a></li>
-                <li><a href="laporanstatistik.php"><i class="fas fa-database"></i>Statistik</a></li>
+                <li><a href="laporanstatistikadmin.php"><i class="fas fa-database"></i>Statistik</a></li>
             </ul>
         </div>
     <!-- sidebar untuk admin tamat -->
