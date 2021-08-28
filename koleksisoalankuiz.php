@@ -3,7 +3,6 @@ require 'connect.php';
 require 'keselamatan.php';
 include('template/sidebar.php');
 
-$idpengguna=$_SESSION['idpengguna'];
 //dapatkan idtopik
 $topikpilihan=$_GET['idtopik'];
 $_SESSION['pilihan']=$topikpilihan;
