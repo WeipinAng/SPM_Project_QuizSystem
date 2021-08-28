@@ -49,8 +49,7 @@ while ($res=mysqli_fetch_array($result)){
                             $data1 = mysqli_query($conn, "SELECT * FROM soalan AS q INNER JOIN pilihan AS a ON q.idsoal=a.idsoal
                             WHERE q.idtopik=$topikpilihan AND a.jawapan=1 GROUP BY a.idsoal ORDER BY q.idsoal ASC");
                             //while loop untuk memastikan semua data dipaparkan
-                            while($info1 = mysqli_fetch_array($data1)){ ?>
-                                
+                            while($info1 = mysqli_fetch_array($data1)){ ?> 
                             <!-- papar dalam bentuk jadual -->
                             <tr>
                                 <td><?php echo $bil++;?></td>
