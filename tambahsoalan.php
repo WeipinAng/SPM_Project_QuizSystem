@@ -22,12 +22,6 @@ if(isset($_POST["submit"])){
 
             //simpan rekod dalam jadual soalan
             $soal = $_POST['soal'];
-            $query = mysqli_query($conn, "SELECT idsoal FROM soal ORDER BY idsoal DESC LIMIT 1");
-            $fetch = mysqli_fetch_assoc($query);
-            $idsoalsebelum = $fetch['idsoal'];
-            $pengubah = (int)substr($idsoalsebelum,-1);
-            $pengubah ++;
-            $idsoalbaharu = "S".$pengubah;
 
             $query2 = "SELECT * FROM soalan";
             $nosoal = mysqli_query($conn,$query2);
@@ -36,8 +30,9 @@ if(isset($_POST["submit"])){
 
             $idtopik=$_GET['idtopikbaharu'];
 
-            $tambah = "INSERT INTO soalan (idsoal,nosoal,soal,idtopik) VALUES ('$idsoalbaharu','$next','$soal','$idtopik')";
+            $tambah = "INSERT INTO soalan (idsoal,nosoal,soal,idtopik) VALUES ('$idsoal','$next','$soal','$idtopik')";
             $hasil1=mysqli_query($conn,$tambah);
+            $lastid=mysqli_insert_id($conn);
         
             //ulangan 4 pilihan bagi setiap soalan
             for($j=0;$j<4;$j++){        
@@ -51,15 +46,9 @@ if(isset($_POST["submit"])){
                 $plhjwp=$ArrayPilihan[$i][$j];
 
                 $idpilihan = $_POST['idpilihan'];
-                $query3 = mysqli_query($conn, "SELECT idpilihan FROM pilihan ORDER BY idpilihan DESC LIMIT 1");
-                $fetch3 = mysqli_fetch_assoc($query3);
-                $idpilihansebelum = $fetch3['idpilihan'];
-                $pengubah3 = (int)substr($idpilihansebelum,-1);
-                $pengubah3 ++;
-                $idpilihanbaharu = "P".$pengubah3;
             
                 //simpan rekod baharu dalam jadual pilihan
-                $sql = "INSERT INTO pilihan (idpilihan,plhjwp,jwp,idsoal) VALUES('$idpilihanbaharu','$plhjwp','$jawapan','$idsoalbaharu')";
+                $sql = "INSERT INTO pilihan (idpilihan,plhjwp,jwp,idsoal) VALUES('$idpilihan','$plhjwp','$jawapan','$lastid')";
                 $hasil2=mysqli_query($conn,$sql);
             }
         }

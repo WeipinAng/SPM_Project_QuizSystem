@@ -54,6 +54,8 @@ $idpengguna=$_SESSION['idpengguna'];
                             }
 
                             $tambah = "INSERT INTO topik (idpengguna,idtopik,topik) VALUES ('$idpengguna','$idtopikbaharu','$topik')";
+                            $insertrow = mysqli_query($conn,$query);
+                            $lastid = mysqli_insert_id($conn);
                             $jumlahsoalan=$_POST['jumlahsoalan'];
                             $idtopikbaharu=$_POST['idtopik'];
 
