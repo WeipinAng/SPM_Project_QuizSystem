@@ -2,70 +2,73 @@
 require 'connect.php';
 require 'keselamatan.php';
 include('template/sidebar.php');
-$idpengguna=$_SESSION['idpengguna'];
-
-//Menerima pemboleh ubah dari halaman tambahkuiz.php
-$jumlahsoalan=$_GET['jumlahsoalan'];
-$topik=$_GET['topik'];
 
 //Jika borang dihantar, masukkan data ke pangkalan data
 if(isset($_POST["submit"])){
-    if($jumlahsoalan!=0){
-    //menerima nilai pemboleh ubah
-    $ArraySoalan=$_POST['soal'];
-    $ArrayPilihan=$_POST['plhjwp'];
-    $ArrayJawapan=$_POST['jwp'];
+    //variable posted
+    $nosoal=$_POST['nosoal'];
+    $idtopik=$_POST['idtopik'];
+    $soal=$_POST['paparansoalan'];
+    $jawapanbetul=$_POST['jawapanbetul'];
+    //array value
+    $pilihan=array();
+    $pilihan[1]=$_POST['pilihan1'];
+    $pilihan[2]=$_POST['pilihan2'];
+    $pilihan[3]=$_POST['pilihan3'];
+    $pilihan[4]=$_POST['pilihan4'];
     
-        //ulangan soalan berdasarkan jumlahsoalan yang dimasukkan oleh pengguna
-        for($i=0;$i<$jumlahsoalan;$i++){
-            $soal=$ArraySoalan[$i];
+        //simpan rekod dalam jadual soalan
+        $soal = $_POST['soal'];
+        $query = mysqli_query($conn, "SELECT idsoal FROM soal ORDER BY idsoal DESC LIMIT 1");
+        $fetch = mysqli_fetch_assoc($query);
+        $idsoalsebelum = $fetch['idsoal'];
+        $pengubah = (int)substr($idsoalsebelum,-1);
+        $pengubah ++;
+        $idsoalbaharu = "S".$pengubah;
 
-            //simpan rekod dalam jadual soalan
-            $soal = $_POST['soal'];
-            $query = mysqli_query($conn, "SELECT idsoal FROM soal ORDER BY idsoal DESC LIMIT 1");
-            $fetch = mysqli_fetch_assoc($query);
-            $idsoalsebelum = $fetch['idsoal'];
-            $pengubah = (int)substr($idsoalsebelum,-1);
-            $pengubah ++;
-            $idsoalbaharu = "S".$pengubah;
+        $query2 = "SELECT * FROM soalan";
+        $nosoal = mysqli_query($conn,$query2);
+        $total = mysqli_num_rows($nosoal);
+        $next = $total+1;
 
-            $query2 = "SELECT * FROM soalan";
-            $nosoal = mysqli_query($conn,$query2);
-            $total = mysqli_num_rows($nosoal);
-            $next = $total+1;
+        $idtopik=$_GET['idtopikbaharu'];
 
-            $idtopik=$_GET['idtopikbaharu'];
+        //tambah soalan
+        $tambah = "INSERT INTO soalan (idsoal,nosoal,soal,idtopik) VALUES ('$idsoalbaharu','$next','$soal','$idtopik')";
+        echo"<script>alert('Pendaftaran Soalan Berjaya.');window.location='tambahsoalan.php?idtopik=$idtopik'</script>";
 
-            $tambah = "INSERT INTO soalan (idsoal,nosoal,soal,idtopik) VALUES ('$idsoalbaharu','$next','$soal','$idtopik')";
-            $hasil1=mysqli_query($conn,$tambah);
-        
-            //ulangan 4 pilihan bagi setiap soalan
-            for($j=0;$j<4;$j++){        
-                //tentukan jawapan
-                if($ArrayJawapan[$i]==$i.$j){
-                    $jawapan=1;
-                }else{
-                    $jawapan=0;
+        //tambah jawapan
+        $idpilihan = $_POST['idpilihan'];
+        $query3 = mysqli_query($conn, "SELECT idpilihan FROM pilihan ORDER BY idpilihan DESC LIMIT 1");
+        $fetch3 = mysqli_fetch_assoc($query3);
+        $idpilihansebelum = $fetch3['idpilihan'];
+        $pengubah3 = (int)substr($idpilihansebelum,-1);
+        $pengubah3 ++;
+        $idpilihanbaharu = "P".$pengubah3;
+
+        if($insertrow){
+            foreach($pilihan as $plhjwp =>$plhjwp){
+                if($plhjwp != ''){
+                    if($jawapanbetul=$plhjwp){
+                        $jwp=1;
+                    }else{
+                        $jwp=0;
+                    }
+                    //simpan rekod baharu dalam jadual pilihan
+                    $sql = "INSERT INTO pilihan (idpilihan,plhjwp,jwp,idsoal) VALUES('$idpilihanbaharu','$plhjwp','$jwp','$idsoalbaharu')";
+                    $hasil2=mysqli_query($conn,$sql);
                 }
-        
-                $plhjwp=$ArrayPilihan[$i][$j];
-
-                $idpilihan = $_POST['idpilihan'];
-                $query3 = mysqli_query($conn, "SELECT idpilihan FROM pilihan ORDER BY idpilihan DESC LIMIT 1");
-                $fetch3 = mysqli_fetch_assoc($query3);
-                $idpilihansebelum = $fetch3['idpilihan'];
-                $pengubah3 = (int)substr($idpilihansebelum,-1);
-                $pengubah3 ++;
-                $idpilihanbaharu = "P".$pengubah3;
-            
-                //simpan rekod baharu dalam jadual pilihan
-                $sql = "INSERT INTO pilihan (idpilihan,plhjwp,jwp,idsoal) VALUES('$idpilihanbaharu','$plhjwp','$jawapan','$idsoalbaharu')";
-                $hasil2=mysqli_query($conn,$sql);
             }
         }
-        echo"<script>alert('Pendaftaran Soalan Berjaya.');window.location='koleksikuizguru.php'</script>";
-    } 
 }
+
+$topikpilihan=$_GET['idtopik'];
+$_SESSION['topiksemasa']=$topikpilihan;
+//jumlah soalan
+$query4 = "SELECT * FROM soalan WHERE idtopik='$topikpilihan'";
+$soalan = mysqli_query($conn,$query4);
+$total=mysqli_num_rows($soalan);
+$next=$total+1;
 ?>
 
 <head>
@@ -108,7 +111,7 @@ if(isset($_POST["submit"])){
                             ?>
                             <!--Pilihan-->
                                 <div class="forminput">                                    
-                                    <input type="text" name="plhjwp[<?php echo $i;?>][<?php echo $j;?>]" placeholder="Pilihan Jawapan"
+                                    <input type="text" name="plhjwp[<?php echo $i;?>][<?php echo $j;?>]" placeholder="Pilihan"
                                     onkeypress='return event.charCode>=32 && event.charCode<=125' required/>
                                     <p>-</p>
                                     <input type="radio" name="jwp[<?php echo $i;?>]" value="<?php echo($i.$j);?>" required> 
