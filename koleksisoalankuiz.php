@@ -12,7 +12,6 @@ $result = mysqli_query($conn, "SELECT * FROM topik WHERE idtopik='$topikpilihan'
 while ($res=mysqli_fetch_array($result)){
     //paparkan nilai asal
     $papartopik=$res['topik'];
-    $paparmarkah=$res['markah'];
 }
 ?>
 
@@ -47,14 +46,14 @@ while ($res=mysqli_fetch_array($result)){
                             //output semua butiran
                             $bil = 1;
                             $data1 = mysqli_query($conn, "SELECT * FROM soalan AS q INNER JOIN pilihan AS a ON q.idsoal=a.idsoal
-                            WHERE q.idtopik=$topikpilihan AND a.jawapan=1 GROUP BY a.idsoal ORDER BY q.idsoal ASC");
+                            WHERE q.idtopik=$topikpilihan AND a.jwp=1 GROUP BY a.idsoal ORDER BY q.idsoal ASC");
                             //while loop untuk memastikan semua data dipaparkan
                             while($info1 = mysqli_fetch_array($data1)){ ?> 
                             <!-- papar dalam bentuk jadual -->
                             <tr>
                                 <td><?php echo $bil++;?></td>
                                 <td><?php echo $info1['soal'];?></td>
-                                <td><?php echo $info1['pilihanjawapan'];?></td>
+                                <td><?php echo $info1['plhjwp'];?></td>
                                 <td>
                                     <a href="kemaskinisoalan.php?idsoal=<?php echo $info1['idsoal']; ?>" class="kemaskinisoalan">Kemas Kini</a>
                                     <a href="hapuskansoalan.php?idsoal=<?php echo $info1['idsoal']; ?>" class="hapussoalan" onclick="return confirm('Adakah anda ingin hapuskan soalan ini?')">Hapuskan</a>

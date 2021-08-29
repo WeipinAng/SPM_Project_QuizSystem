@@ -44,7 +44,7 @@ $idpengguna=$_SESSION['idpengguna'];
                                 <td><?php echo $info1['topik'];?></td>
                                 <td><?php echo $getbil['bil'];?></td>
                                 <td>
-                                    <a href="jawabsoalan.php" class="jawabsoalan">Mula Menjawab</a>
+                                    <a href="jawabsoalan.php?idtopik=<?php echo $info1['idtopik']; ?>" class="jawabsoalan">Mula Menjawab</a>
                                 </td>
                             </tr>
                         <?php } ?>             

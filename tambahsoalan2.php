@@ -2,21 +2,19 @@
 require 'connect.php';
 require 'keselamatan.php';
 include('template/sidebar.php');
+$idpengguna=$_SESSION['idpengguna'];
+
+//Menerima pemboleh ubah dari halaman tambahkuiz.php
+$jumlahsoalan=$_GET['jumlahsoalan'];
+$topik=$_GET['topik'];
 
 //Jika borang dihantar, masukkan data ke pangkalan data
 if(isset($_POST["submit"])){
     if($jumlahsoalan!=0){
-    //variable posted
-    $nosoal=$_POST['nosoal'];
-    $idtopik=$_POST['idtopik'];
-    $soal=$_POST['paparansoalan'];
-    $jawapanbetul=$_POST['jawapanbetul'];
-    //array value
-    $pilihan=array();
-    $pilihan[1]=$_POST['pilihan1'];
-    $pilihan[2]=$_POST['pilihan2'];
-    $pilihan[3]=$_POST['pilihan3'];
-    $pilihan[4]=$_POST['pilihan4'];
+    //menerima nilai pemboleh ubah
+    $ArraySoalan=$_POST['soal'];
+    $ArrayPilihan=$_POST['plhjwp'];
+    $ArrayJawapan=$_POST['jwp'];
     
         //ulangan soalan berdasarkan jumlahsoalan yang dimasukkan oleh pengguna
         for($i=0;$i<$jumlahsoalan;$i++){
@@ -39,8 +37,7 @@ if(isset($_POST["submit"])){
             $idtopik=$_GET['idtopikbaharu'];
 
             $tambah = "INSERT INTO soalan (idsoal,nosoal,soal,idtopik) VALUES ('$idsoalbaharu','$next','$soal','$idtopik')";
-            $insertrow=mysqli_query($conn,$tambah);
-            $lastid=mysqli_insert_id($conn);
+            $hasil1=mysqli_query($conn,$tambah);
         
             //ulangan 4 pilihan bagi setiap soalan
             for($j=0;$j<4;$j++){        

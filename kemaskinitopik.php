@@ -56,11 +56,6 @@ $idpengguna=$_SESSION['idpengguna'];
                             onkeypress='return event.charCode>=32 && event.charCode<=125' required></input>
                         </div>
 
-                        <div class="forminput">
-                            <input type="text" name="jumlahsoalan" placeholder="Jumlah Soalan" maxlength="3"
-                            onkeypress='return event.charCode>=48 && event.charCode<=57' required>
-                        </div>
-
                         <div class="button">
                             <button class="submit" type="submit" name="update">Kemas Kini</button>
                             <button class="reset" type="reset">Reset</button>
