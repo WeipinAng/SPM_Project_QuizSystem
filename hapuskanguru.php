@@ -8,7 +8,7 @@ $hapus1 = mysqli_query($conn, "SELECT * FROM pengguna AS u INNER JOIN topik AS t
 ON u.idpengguna=t.idpengguna INNER JOIN soalan AS q
 ON t.idtopik=q.idtopik INNER JOIN perekodan AS r
 ON t.idtopik=r.idtopik INNER JOIN pilihan AS c
-ON q.idsoalan=c.idsoalan WHERE u.idpengguna = $hapusguru");
+ON q.idsoal=c.idsoal WHERE u.idpengguna = $hapusguru");
 
 $hapusdata = mysqli_fetch_array($hapus1);
 $hapus1 = $hapusguru;

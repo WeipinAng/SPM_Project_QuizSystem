@@ -29,7 +29,7 @@ body {
     text-shadow: 0 0 10px #9EBAF3;
 }
 
-.logoutbutton{
+.logoutbutton {
     padding: 10px;
     background-image: linear-gradient(90deg,#6CD0FF,#1C2E4C);
     text-shadow: 0 0 10px #fff;
@@ -44,7 +44,7 @@ a {
     text-decoration: none;
 }
 
-a:visited {
+.logoutbutton a:visited {
     color: #fff;
 }
 
@@ -95,13 +95,13 @@ a:visited {
     color: #fff;
 }
 
-.quizform {
+.updatequestionform {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.forminputtopik {
+.forminputsoalan {
     width: auto;
     position: relative;
     margin-bottom: 20px;
@@ -109,22 +109,77 @@ a:visited {
     margin-right: 50px;
 }
 
-.topik {
+.soalan {
     background: #b3cccc;
 }
 
 .forminput {
     position: relative;
-    width: 400px;
-    margin-bottom: 20px;
+    width: 700px;
+    margin-bottom: 10px;
     margin-left: 50px;
     margin-right: 50px;
+}
+
+.jawapan {
+    appearance: none;
+}
+
+select,
+button {
+    border: none;
+    outline: none;
+    font-size: 0.9em;
+}
+
+select {
+    width: 100%;
+    background: #e6e6e6;
+    letter-spacing: 0.5px;
+    padding: 14px 64px;
+}
+
+/*"invalid" works here because of the empty value in the placeholder option*/
+select:invalid {
+    color: #888;
+}
+
+select ~ p {
+    position: absolute;
+    left: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    transition: color 0.4s;
+}
+
+select:focus ~ p {
+    color: #86b300;
+}
+
+input ~ p {
+    position: absolute;
+    left: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #204060;
+    transition: color 0.4s;
+}
+
+input ~ input {
+    position: absolute;
+    left: 300px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+input:focus ~ p {
+    color: #3d5c5c;
 }
 
 .button {
     display: block;
     text-align: center;
-    margin-top: 50px;
 }
 
 input,
@@ -139,7 +194,7 @@ input {
     background: #e0ebeb;
     color: #000000;
     letter-spacing: 0.5px;
-    padding: 14px 64px;
+    padding: 14px 65px;
 }
 
 button.submit {

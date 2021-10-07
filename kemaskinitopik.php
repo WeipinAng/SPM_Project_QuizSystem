@@ -6,8 +6,8 @@ $idpengguna=$_SESSION['idpengguna'];
 ?>
 
 <head>
-    <link rel="stylesheet" href="css/kemaskinikuizstyle.css?v=<?php echo time(); ?>">
-    <title>Laman Utama</title>
+    <link rel="stylesheet" href="css/kemaskinitopikstyle.css?v=<?php echo time(); ?>">
+    <title>Kemas Kini Topik</title>
 </head>
     <!-- header mula -->
         <div class="space">
@@ -17,7 +17,7 @@ $idpengguna=$_SESSION['idpengguna'];
             </div>
     <!-- header tamat -->
             <div class="maincontent">
-                <div class="title">KEMAS KINI KUIZ</div>
+                <div class="title">KEMAS KINI TOPIK</div>
                 <div class="balik"><a href="koleksikuizguru.php">Balik</a></div>
                 <div class="separator"></div>
                 <div class="detailbox">    
@@ -29,7 +29,7 @@ $idpengguna=$_SESSION['idpengguna'];
                         $res = "SELECT * FROM topik WHERE idtopik='$idtopik'";
                         $update = mysqli_query($conn,$res);
                         
-                        //semak sama ada
+                        //semak
                         if($update==TRUE){
                             $count = mysqli_num_rows($update);
                             if($count==1){

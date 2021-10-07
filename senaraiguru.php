@@ -5,8 +5,21 @@ include('template/sidebar.php');
 ?>
 
 <head>
-    <link rel="stylesheet" href="senaraigurustyle.css?v=<?php echo time(); ?>">
-    <title>Laman Utama</title>
+    <link rel="stylesheet" href="css/senaraigurustyle.css?v=<?php echo time(); ?>">
+    <script src="jquery_library.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".searchbutton").click(function(){
+                $(this).toggleClass("bg-aquavelvet");
+                $(".fas").toggleClass("color-white");
+                //focus method in input element to achieve the blinking effect in the input field
+                //.val('') is to clear the input field and a value
+                $(".searchinput").focus().toggleClass("active-width").val('');
+            });
+        });
+    </script>
+    <title>Senarai Guru</title>
 </head>
     <!-- header mula -->
         <div class="space">
@@ -17,47 +30,53 @@ include('template/sidebar.php');
     <!-- header tamat -->
             <div class="maincontent">
                 <div class="title">SENARAI GURU BERDAFTAR</div>
-                <!-- search bar mula -->
-                    
-                <!-- search bar tamat -->
+                <a name="cetak" onclick="window.print()">CETAK</a>
                 <div class="separator"></div>
                 <div class="detailbox">                     
                     <!-- output senarai guru -->
-                    <table class="senaraiguru" autowidth="false">
+                    <div class="searchbox">
+                            <input type="text" name="search" id="search" class="searchinput" placeholder="Cari..." spellcheck="false">
+                            <div class="searchbutton">
+                                <i class="fas fa-search"></i>
+                            </div>
+                    </div>
+                    <table class="senaraiguru" id="senaraiguru" autowidth="false">
                         <thead>
                             <tr>
                                 <th style="width: 10%;">Bil.</th>
-                                <th style="width: 20%;">Nama Guru</th>
+                                <th style="width: 40%;">Nama Guru</th>
                                 <th style="width: 20%;">ID Pengguna</th>
                                 <th style="width: 15%;">Bil. Topik</th>
-                                <th style="width: 15%;">Bil. Soalan</th>
-                                <th style="width: 20%;">Tindakan</th>
+                                <th style="width: 15%;">Tindakan</th>
                             </tr>
-                        </thead>  
+                        </thead>
                     <?php
                         $bil = 1;
                         //output senarai guru mengikut susunan ASC
-                        $data = mysqli_query($conn,"SELECT * FROM pengguna WHERE peranan='guru' ORDER BY nama ASC");
-                        while($info1 = mysqli_fetch_assoc($data)){
+                        $queryguru = mysqli_query($conn,"SELECT * FROM pengguna WHERE peranan='guru' ORDER BY nama ASC");
+                        while($fetchguru = mysqli_fetch_assoc($queryguru)){
                             //sambung ke entiti topik
-                            $topik = mysqli_query($conn,"SELECT idtopik, COUNT(idtopik) as 'biltopik' FROM topik WHERE idpengguna='$info1[idpengguna]' GROUP BY idpengguna");
+                            $topik = mysqli_query($conn,"SELECT idtopik, COUNT(idtopik) as 'biltopik' FROM topik WHERE idpengguna='$fetchguru[idpengguna]' GROUP BY idpengguna");
                             $datatopik = mysqli_fetch_assoc($topik);
-                            //sambung ke entiti soalan
-                            $soalan = mysqli_query($conn,"SELECT idsoal, COUNT(idsoal) as 'bilsoal' FROM soalan WHERE idtopik='$datatopik[idtopik]' GROUP BY idsoal");
-                            $datasoalan = mysqli_fetch_assoc($soalan);
-                    ?>        
-                        <tr>
-                            <td><?php echo $bil;?></td>
-                            <td><?php echo $info1['nama'];?></td>
-                            <td><?php echo $info1['idpengguna'];?></td>
-                            <td><?php echo $datatopik['biltopik'];?></td>
-                            <td><?php echo $datasoalan['bilsoal'];?></td>
-                            <td>
-                                <a href="kemaskiniguru.php?idtopik=<?php echo $info1['idpengguna']; ?>" class="kemaskiniguru">Kemas Kini</a>
-                                <a href="hapuskanguru.php?idtopik=<?php echo $info1['idpengguna']; ?>" class="hapusguru" onclick="return confirm('Adakah anda ingin hapuskan kesemua rekod guru ini?')">Hapuskan</a>
-                            </td>
-                        </tr>
-                        <?php $bil++;} ?>
+                            $bildatatopik = mysqli_num_rows($topik);
+                    ?>
+                        <tbody>
+                            <tr>
+                                <td><?php echo $bil;?></td>
+                                <td><?php echo $fetchguru['nama'];?></td>
+                                <td><?php echo $fetchguru['idpengguna'];?></td>
+                                <td><?php
+                                if($bildatatopik==0){
+                                    echo 0;
+                                } else {
+                                    echo $datatopik['biltopik'];
+                                } ?></td>
+                                <td>
+                                    <a href="hapuskanguru.php?idtopik=<?php echo $fetchguru['idpengguna']; ?>" class="hapusguru" onclick="return confirm('Adakah anda ingin hapuskan kesemua rekod guru ini?')">Hapuskan</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <?php $bil++; } ?>
                     </table>
                     <br><br>Jumlah Rekod: <?php echo $bil-1;?><br>
                     </div>
@@ -65,3 +84,28 @@ include('template/sidebar.php');
         </div>
 </body>
 </html>
+
+<script>
+    $(document).ready(function(){
+        $('#search').keyup(function(){
+            search_table($(this).val());
+        });
+
+        function search_table(value){
+            $('#senaraiguru tbody').each(function(){
+                var found = 'false';
+                $(this).each(function(){
+                    if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0){
+                        found = 'true';
+                    }
+                });
+                if(found == 'true'){
+                    $(this).show();
+                }
+                else{
+                    $(this).hide();
+                }
+            });
+        }
+    });
+</script>

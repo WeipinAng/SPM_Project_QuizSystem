@@ -6,8 +6,8 @@ $idpengguna=$_SESSION['idpengguna'];
 ?>
 
 <head>
-    <link rel="stylesheet" href="laporanstatistikadminstyle.css?v=<?php echo time(); ?>">
-    <title>Laman Utama</title>
+    <link rel="stylesheet" href="css/laporanstatistikadminstyle.css?v=<?php echo time(); ?>">
+    <title>Laporan Statistik Admin</title>
 </head>
     <!-- header mula -->
         <div class="space">
@@ -18,17 +18,17 @@ $idpengguna=$_SESSION['idpengguna'];
     <!-- header tamat -->
             <div class="maincontent" id="print">
                 <div class="title">LAPORAN STATISTIK</div>
-                <button class="cetak" onclick="window.print();">Cetak Laporan</button>
+                <a name="cetak" onclick="window.print()">CETAK</a>
                 <div class="separator"></div>
-
-                <div class="detailbox">
+                <div class="detailbox" id="printablearea">
                     <p style="font-size: 16px">LAPORAN: Bilangan Soalan Mengikut Topik</p><br>
                     <?php
                         //output laporan statistik
                         $tambah = "SELECT * FROM topik";
                         $hasil = mysqli_query($conn,$tambah);                       
                         ?>
-                        <table class="laporan" autowidth="false">
+
+                        <table class="laporan">
                             <thead>
                                 <tr>
                                     <th style="width: 10%;">Bil.</th>
@@ -37,23 +37,23 @@ $idpengguna=$_SESSION['idpengguna'];
                                 </tr>
                             </thead>
                             <?php
-                                $jumlah = 1;
-                                $topik=mysqli_query($conn, "SELECT * FROM topik");
+                                $no = 1;
+                                $querytopik = mysqli_query($conn, "SELECT * FROM topik");
                                 //while loop untuk memastikan semua data dipaparkan
-                                while($infotopik = mysqli_fetch_array($topik)){
+                                while($fetchtopik = mysqli_fetch_array($querytopik)){
                                     //sambung ke entiti soalan
-                                    $soalan=mysqli_query($conn, "SELECT idtopik,COUNT(idtopik) as 'bil' FROM soalan GROUP BY idtopik");
-                                    $infosoalan=mysqli_fetch_array($soalan);
+                                    $soalan = mysqli_query($conn, "SELECT nosoal,COUNT(nosoal) as 'bil' FROM soalan WHERE idtopik='$fetchtopik[idtopik]'");
+                                    $fetchsoalan = mysqli_fetch_array($soalan);
                             ?>
                             <!-- masukkan data ke dalam lajur yang ditetapkan -->
                             <tr>
-                                <td><?php echo $jumlah++;?></td>
-                                <td><?php echo $infotopik['topik'];?></td>
-                                <td><?php echo $infosoalan['bil'];?></td>
+                                <td><?php echo $no++;?></td>
+                                <td><?php echo $fetchtopik['topik'];?></td>
+                                <td><?php echo $fetchsoalan['bil'];?></td>
                             </tr>
                                 <?php } ?>
                         </table>
-                        <br><br>Jumlah Rekod: <?php echo $jumlah-1;?><br>
+                        <br><br>Jumlah Rekod: <?php echo $no-1;?><br>
                     </div>
             </div>
         </div>

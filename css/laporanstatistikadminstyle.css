@@ -75,7 +75,7 @@ a {
     padding: 40px;
 }
 
-.prestasi {
+.laporan {
     width: 100%;
     table-layout: auto;
 }
@@ -90,14 +90,17 @@ table tr td {
     padding: 1%;
 }
 
-.laporan {
-    background-color: #686de0;
+a[name="cetak"] {
+    cursor: pointer;
+    background-image: linear-gradient(to right, #7E9680, #79616F);
+    text-shadow: 0 0 4px #fff;
     padding: 5px;
     color: white;
+    letter-spacing: 2px;
     text-decoration: none;
-    font-size: 15px;
-}
-
-.laporan:hover {
-    background-color: #4834d4;
+    font-weight: bold;
+    display: inline-block;
+    float: right;
+    margin-top: -50px;
+    margin-right: 10px;
 }

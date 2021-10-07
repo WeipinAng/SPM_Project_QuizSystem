@@ -75,7 +75,27 @@ a {
     padding: 40px;
 }
 
-.laporan {
+.balik {
+    background-color: #58B19F;
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    float: right;
+    margin-top: -50px;
+    margin-right: 10px;
+}
+
+.balik:hover {
+    background-color: #079992;
+}
+
+.balik a:visited {
+    color: #fff;
+}
+
+.laporanprestasitopik {
     width: 100%;
     table-layout: auto;
 }
@@ -90,33 +110,17 @@ table tr td {
     padding: 1%;
 }
 
-
-button.cetak {
-    background-color: #58B19F;
+a[name="cetak"] {
+    cursor: pointer;
+    background-image: linear-gradient(to right, #7E9680, #79616F);
+    text-shadow: 0 0 4px #fff;
     padding: 5px;
     color: white;
+    letter-spacing: 2px;
     text-decoration: none;
     font-weight: bold;
     display: inline-block;
     float: right;
     margin-top: -50px;
-    margin-right: 10px;
-}
-
-.cetak:hover {
-    background-color: #079992;
-}
-
-@media print {
-* {
-    visibility: hidden;
-}
-
-#print * {
-    visibility: visible;
-}
-
-#table {
-    width: 1000px;
-}
+    margin-right: 80px;
 }

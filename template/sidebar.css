@@ -41,11 +41,13 @@ body {
     width: 60%;
     border-radius: 50%;;
     box-shadow: 0 0 20px 0 #b3b3cc;
+    background-color: #ecf0f1;
 }
 
 h5 {
     margin-bottom: 25px;
     color: #000000;
+    text-align: center;
 }
 
 .wrapper .dashboard ul li {

@@ -6,7 +6,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
     <link rel="stylesheet" href="template/sidebar.css?v=<?php echo time(); ?>">
-    <title>Laman Utama</title>
 </head>
 
 <?php
@@ -18,9 +17,9 @@ if ($_SESSION['idpengguna']=="G0000"){
         <div class="dashboard">
             <h2>Laman Utama</h2>
             <div class="icon">
-                <img src="images/Guru.png" alt="">
+                <img src="images/Buku.png" alt="">
             </div>
-            <h5><center>Guru</center></h5>
+            <h5>Admin</h5>
             <ul>
                 <li><a href="lamanutamaguru.php"><i class="fas fa-info-circle"></i>Profil</a></li>
                 <li><a href="senaraiguru.php"><i class="fas fa-table"></i>Senarai Guru</a></li>
@@ -39,9 +38,9 @@ if ($_SESSION['idpengguna']=="G0000"){
         <div class="dashboard">
             <h2>Laman Utama</h2>
             <div class="icon">
-                <img src="images/Guru.png" alt="">
+                <img src="images/Buku.png" alt="">
             </div>
-            <h5><center>Guru</center></h5>
+            <h5>Guru</h5>
             <ul>
                 <li><a href="lamanutamaguru.php"><i class="fas fa-info-circle"></i>Profil</a></li>
                 <li><a href="koleksikuizguru.php"><i class="fab fa-wpforms"></i>Koleksi Kuiz</a></li>
@@ -62,7 +61,7 @@ if ($_SESSION['idpengguna']=="G0000"){
             <div class="icon">
                 <img src="images/Daftar2.png" alt="">
             </div>
-            <h5><center>Murid</center></h5>
+            <h5>Murid</h5>
             <ul>
                 <li><a href="lamanutamamurid.php"><i class="fas fa-info-circle"></i>Profil</a></li>
                 <li><a href="koleksikuizmurid.php"><i class="fab fa-wpforms"></i>Koleksi Kuiz</a></li>

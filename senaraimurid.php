@@ -5,8 +5,21 @@ include('template/sidebar.php');
 ?>
 
 <head>
-    <link rel="stylesheet" href="senaraimuridstyle.css?v=<?php echo time(); ?>">
-    <title>Laman Utama</title>
+    <link rel="stylesheet" href="css/senaraimuridstyle.css?v=<?php echo time(); ?>">
+    <script src="jquery_library.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".searchbutton").click(function(){
+                $(this).toggleClass("bg-aquavelvet");
+                $(".fas").toggleClass("color-white");
+                //focus method in input element to achieve the blinking effect in the input field
+                //.val('') is to clear the input field and a value
+                $(".searchinput").focus().toggleClass("active-width").val('');
+            });
+        });
+    </script>
+    <title>Senarai Murid</title>
 </head>
     <!-- header mula -->
         <div class="space">
@@ -17,48 +30,54 @@ include('template/sidebar.php');
     <!-- header tamat -->
             <div class="maincontent">
                 <div class="title">SENARAI MURID BERDAFTAR</div>
-                <!-- search bar mula -->
-                    
-                <!-- search bar tamat -->
+                <a name="cetak" onclick="window.print()">CETAK</a>
                 <div class="separator"></div>
                 <div class="detailbox">    
-                    <!-- output senarai guru -->
+                    <!-- output senarai murid -->
                     <?php
                         //output butiran topik
-                        $tambah = "SELECT * FROM pengguna WHERE peranan='murid' ORDER BY nama ASC";
-                        $hasil = mysqli_query($conn,$tambah);                       
+                        $querymurid = mysqli_query($conn, "SELECT * FROM pengguna WHERE peranan='murid' ORDER BY nama ASC");
                         ?>
-                        <table class="senaraimurid" autowidth="false">
+                        <div class="searchbox">
+                            <input type="text" name="search" id="search" class="searchinput" placeholder="Cari..." spellcheck="false">
+                            <div class="searchbutton">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                        <table class="senaraimurid" id="senaraimurid" autowidth="false">
                             <thead>
                                 <tr>
-                                    <th style="width: 10%;">Bil.</th>
-                                    <th style="width: 30%;">Nama Murid</th>
+                                    <th style="width: 5%;">Bil.</th>
+                                    <th style="width: 35%;">Nama Murid</th>
                                     <th style="width: 15%;">ID Pengguna</th>
-                                    <th style="width: 20%;">Kata Laluan</th>
-                                    <th style="width: 25%;">Tindakan</th>
+                                    <th style="width: 15%;">Kata Laluan</th>
+                                    <th style="width: 15%;">No Telefon</th>
+                                    <th style="width: 15%;">Tindakan</th>
                                 </tr>
                             </thead>
                             <?php
-                                if($hasil==TRUE){
+                                if($querymurid==TRUE){
                                     //ambil semua rows
-                                    $count = mysqli_num_rows($hasil);
+                                    $count = mysqli_num_rows($querymurid);
                                     if($count>0){
                                         //output semua butiran
                                         $bil = 1;
                                         //while loop untuk memastikan semua data dipaparkan
-                                        while($rows = mysqli_fetch_assoc($hasil)): ?>
+                                        while($fetchmurid = mysqli_fetch_assoc($querymurid)): ?>
                                             
                                         <!-- papar dalam bentuk jadual -->
-                                        <tr>
-                                            <td><?php echo $bil++;?></td>
-                                            <td><?php echo $rows['nama'];?></td>
-                                            <td><?php echo $rows['idpengguna'];?></td>
-                                            <td><?php echo $rows['katalaluan'];?></td>
-                                            <td>
-                                                <a href="kemaskinimurid.php?idtopik=<?php echo $rows['idpengguna']; ?>" class="kemaskinimurid">Kemas Kini</a>
-                                                <a href="hapuskanmurid.php?idtopik=<?php echo $rows['idpengguna']; ?>" class="hapusmurid" onclick="return confirm('Adakah anda ingin hapuskan kesemua rekod murid ini?')">Hapuskan</a>
-                                            </td>
-                                        </tr>
+                                        <tbody>
+                                            <tr>
+                                                <td><?php echo $bil++;?></td>
+                                                <td><?php echo $fetchmurid['nama'];?></td>
+                                                <td><?php echo $fetchmurid['idpengguna'];?></td>
+                                                <td><?php echo $fetchmurid['katalaluan'];?></td>
+                                                <td><?php echo $fetchmurid['notel'];?></td>
+                                                <td>
+                                                    <a href="hapuskanmurid.php?idtopik=<?php echo $fetchmurid['idpengguna']; ?>" class="hapusmurid" onclick="return confirm('Adakah anda ingin hapuskan kesemua rekod murid ini?')">Hapuskan</a>
+                                                </td>
+                                            </tr>
+                                        </tbody> 
                                         <?php endwhile; }} ?>
                         </table>
                         <br><br>Jumlah Rekod: <?php echo $bil-1;?><br>
@@ -74,3 +93,28 @@ include('template/sidebar.php');
         </div>
 </body>
 </html>
+
+<script>
+    $(document).ready(function(){
+        $('#search').keyup(function(){
+            search_table($(this).val());
+        });
+
+        function search_table(value){
+            $('#senaraimurid tbody').each(function(){
+                var found = 'false';
+                $(this).each(function(){
+                    if($(this).text().toLowerCase().indexOf(value.toLowerCase()) >= 0){
+                        found = 'true';
+                    }
+                });
+                if(found == 'true'){
+                    $(this).show();
+                }
+                else{
+                    $(this).hide();
+                }
+            });
+        }
+    });
+</script>

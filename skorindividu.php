@@ -6,8 +6,8 @@ $idpengguna=$_SESSION['idpengguna'];
 ?>
 
 <head>
-    <link rel="stylesheet" href="skorindividustyle.css?v=<?php echo time(); ?>">
-    <title>Laman Utama</title>
+    <link rel="stylesheet" href="css/skorindividustyle.css?v=<?php echo time(); ?>">
+    <title>Markah Individu</title>
 </head>
     <!-- header mula -->
         <div class="space">
@@ -17,57 +17,39 @@ $idpengguna=$_SESSION['idpengguna'];
             </div>
     <!-- header tamat -->
             <div class="maincontent">
-                <div class="title">REKOD MARKAH YANG DICAPAI</div>
+                <div class="title">PRESTASI TOPIK</div>
                 <div class="separator"></div>
                 <div class="detailbox">
                     <table class="skorindividu" autowidth="false">
                         <thead>
                             <tr>
                                 <th style="width: 10%;">Bil.</th>
-                                <th style="width: 30%;">Topik</th>
-                                <th style="width: 15%;">Jenis Soalan</th>
-                                <th style="width: 25%;">Tarikh/Masa</th>
-                                <th style="width: 10%;">Skor</th>
-                                <th style="width: 10%;">Markah</th>
+                                <th style="width: 55%;">Topik</th>
+                                <th style="width: 20%;">Tarikh</th>
+                                <th style="width: 15%;">Markah</th>
                             </tr>
                         </thead>
                         
                         <?php
                             //output semua butiran
-                            $no = 1;
-                            $data1 = mysqli_query($conn,"SELECT * FROM perekodan WHERE idpengguna='$idpengguna' ORDER BY tarikh DESC");
-                            while($info1 = mysqli_fetch_array($data1)){
+                            $bil = 1;
+                            $queryrekod = mysqli_query($conn,"SELECT * FROM perekodan WHERE idpengguna='$idpengguna' ORDER BY tarikh DESC");
+                            while($fetchrekod = mysqli_fetch_array($queryrekod)){
                                 //Jadual topik
-                                $datatopik = mysqli_query($conn,"SELECT * FROM topik WHERE idtopik='$info1[idtopik]'");
+                                $datatopik = mysqli_query($conn,"SELECT * FROM topik WHERE idtopik='$fetchrekod[idtopik]'");
                                 $gettopik = mysqli_fetch_array($datatopik);
-
-                                //Jadual soalan, dapatkan bilangan soalan
-                                $datasoalan = mysqli_query($conn,"SELECT jenis,COUNT(idtopik) as 'bil' FROM soalan WHERE idtopik='$info1[idtopik]' GROUP BY jenis");
-                                $infosoalan = mysqli_fetch_array($datasoalan);
-
-                                //Pemboleh ubah VALUE
-                                $jenissoalan = $info1['jenis'];
-                                $bilsoalan = $infosoalan['bil'];
-                                $markahtopik = $gettopik['markah'];
                         ?>
                                 
                         <!-- papar dalam bentuk jadual -->
                         <tr>
-                            <td><?php echo $no++;?></td>
-                            <td><?php echo $gettopik['topik'];?></td>
-                            <td><?php
-                                if($jenissoalan==1){
-                                    echo "MCQ/TF";
-                                }else{
-                                    echo "FIB";
-                                }?></td>
-                            <td><?php echo date('d-m-Y g:i A', strtotime($info1['tarikh']));?></td>
-                            <td><?php echo $info1['skor'];?></td>
-                            <td><?php echo number_format(($info1['skor']/$bilsoalan)*$markahtopik);?>%</td>
+                            <td><?php echo $bil++ ;?></td>
+                            <td><?php echo $gettopik['topik'] ;?></td>
+                            <td><?php echo $fetchrekod['tarikh'] ;?></td>
+                            <td><?php echo $fetchrekod['markah'] ;?>%</td>
                         </tr>
                         <?php } ?>
                     </table>
-                    <br><br>Jumlah Rekod: <?php echo $no-1;?><br>
+                    <br><br>Jumlah Rekod: <?php echo $bil-1;?><br>
                     <?php
                         function pre_r($array){
                             echo '<pre>';

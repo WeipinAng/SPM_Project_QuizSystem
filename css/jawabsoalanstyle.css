@@ -29,7 +29,7 @@ body {
     text-shadow: 0 0 10px #9EBAF3;
 }
 
-.logoutbutton{
+.logoutbutton {
     padding: 10px;
     background-image: linear-gradient(90deg,#6CD0FF,#1C2E4C);
     text-shadow: 0 0 10px #fff;
@@ -44,7 +44,7 @@ a {
     text-decoration: none;
 }
 
-a:visited {
+.logoutbutton a:visited {
     color: #fff;
 }
 
@@ -101,7 +101,7 @@ a:visited {
     flex-direction: column;
 }
 
-.forminputtopik {
+.forminputsoalan {
     width: auto;
     position: relative;
     margin-bottom: 20px;
@@ -109,22 +109,53 @@ a:visited {
     margin-right: 50px;
 }
 
-.topik {
+.soalan {
     background: #b3cccc;
 }
 
-.forminput {
+.forminput .radiogroup input {
     position: relative;
-    width: 400px;
-    margin-bottom: 20px;
-    margin-left: 50px;
+    width: 700px;
+    margin-bottom: -15px;
+    margin-left: 10px;
     margin-right: 50px;
+}
+
+.jawapan {
+    appearance: none;
+}
+
+select,
+button {
+    border: none;
+    outline: none;
+    font-size: 0.9em;
+}
+
+select {
+    width: 100%;
+    background: #e6e6e6;
+    letter-spacing: 0.5px;
+    padding: 14px 64px;
+}
+
+/*"invalid" works here because of the empty value in the placeholder option*/
+select:invalid {
+    color: #888;
+}
+
+select ~ p {
+    position: absolute;
+    left: 32px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    transition: color 0.4s;
 }
 
 .button {
     display: block;
     text-align: center;
-    margin-top: 50px;
 }
 
 input,
@@ -139,7 +170,53 @@ input {
     background: #e0ebeb;
     color: #000000;
     letter-spacing: 0.5px;
-    padding: 14px 64px;
+    padding: 14px 65px;
+}
+
+.radiolabel {
+    display: inline-block;
+    vertical-align: middle;
+    color: #fff;
+    position: relative;
+    padding-left: 30px;
+    margin-left: 10px;
+}
+
+.radiolabel + .radiolabel {
+    margin-left: 20px;
+}
+
+.radiolabel input[type="radio"]{
+    display: none;
+}
+
+.radiolabel span {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 3px solid #3c6382;
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 4px;
+}
+
+.radiolabel span:after {
+    content: "";
+    height: 12px;
+    width: 12px;
+    background: #0a3d62;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    border-radius: 50%;
+    transition: 300ms ease-in-out 0s;
+}
+
+.radiolabel input[type="radio"]:checked ~ span:after {
+    transform: translate(-50%,-50%) scale(1);
 }
 
 button.submit {

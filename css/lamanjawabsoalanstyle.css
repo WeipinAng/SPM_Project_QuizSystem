@@ -75,6 +75,26 @@ a {
     padding: 40px;
 }
 
+.balik {
+    background-color: #58B19F;
+    padding: 5px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    float: right;
+    margin-top: -50px;
+    margin-right: 10px;
+}
+
+.balik:hover {
+    background-color: #079992;
+}
+
+.balik a:visited {
+    color: #fff;
+}
+
 .arahan p {
     top: 5%;
     left: 4%;
@@ -82,18 +102,16 @@ a {
     color: #34495e ;
 }
 
-button.submit {    
+button.submit {
+    color: #fff;
     padding: 10px 30px;
-    margin: 10px 0 0 50px;
+    margin: 20px 25px 5px auto;
     font-size: 0.8em;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     font-weight: bold;
-    background-image: linear-gradient(to right, #7697A0, #DDDDDA);
+    text-shadow: 0 0 20px #fff;
+    background-image: linear-gradient(to right,#7E9680, #79616F);
     cursor: pointer;
-}
-
-.import {
-    width: 100%;
-    table-layout: auto;
+    border-radius: 30px;
 }

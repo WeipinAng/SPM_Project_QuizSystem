@@ -29,7 +29,7 @@ body {
     text-shadow: 0 0 10px #9EBAF3;
 }
 
-.logoutbutton{
+.logoutbutton {
     padding: 10px;
     background-image: linear-gradient(90deg,#6CD0FF,#1C2E4C);
     text-shadow: 0 0 10px #fff;
@@ -44,7 +44,7 @@ a {
     text-decoration: none;
 }
 
-a:visited {
+.logoutbutton a:visited {
     color: #fff;
 }
 
@@ -69,6 +69,7 @@ a:visited {
 }
 
 .detailbox {
+    max-height: 600px;
     position: relative;
     background: #fff;
     background-color: rgba(255, 255, 255, 0.7);
@@ -95,77 +96,89 @@ a:visited {
     color: #fff;
 }
 
-.quizform {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+.arahan p {
+    top: 5%;
+    left: 4%;
+    font-size: 20px;
+    color: #34495e ;
 }
 
-.forminputtopik {
-    width: auto;
+.circularprogressbarcontainer {
+    height: 300px;
+    width: 300px;
+    background-color: #fff;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 35%;
+    left: 80%;
+    border-radius: 8px;
+    box-shadow: 20px 20px 40px rgba(60,60,150,0.25);
+    display: grid;
+    place-items: center;
+}
+
+.circularprogressbar {
     position: relative;
-    margin-bottom: 20px;
-    margin-left: 50px;
-    margin-right: 50px;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
 }
 
-.topik {
-    background: #b3cccc;
+.circularprogressbar:before {
+    content: '';
+    position: absolute;
+    height: 84%;
+    width: 84%;
+    background-color: #fff;
+    border-radius: 50%;
 }
 
-.forminput {
+.valuecontainer {
     position: relative;
-    width: 400px;
-    margin-bottom: 20px;
-    margin-left: 50px;
-    margin-right: 50px;
+    font-family: "Poppins", sans-serif;
+    font-size: 35px;
+    color: #231c3d;
 }
 
-.button {
-    display: block;
-    text-align: center;
-    margin-top: 50px;
+.circularprogressbar2 {
+    position: relative;
+    height: 160px;
+    width: 160px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    transform: translate(-47%,-145%);
+    left: 82%;
 }
 
-input,
+.circularprogressbar2:before {
+    content: '';
+    position: absolute;
+    height: 84%;
+    width: 84%;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.valuecontainer2 {
+    position: relative;
+    font-family: "Poppins", sans-serif;
+    font-size: 35px;
+    color: #231c3d;
+}
+
 button {
-    border: none;
-    outline: none;
-    font-size: 0.9em;
-}
-
-input {
-    width: 100%;
-    background: #e0ebeb;
-    color: #000000;
-    letter-spacing: 0.5px;
-    padding: 14px 64px;
-}
-
-button.submit {
-    color: #000;
+    color: #fff;
     padding: 10px 30px;
     margin: 20px 25px 5px auto;
     font-size: 0.8em;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: bold;
-    text-shadow: 0 0 10px #fff;
-    background-image: linear-gradient(to right,#FFB330, #FFFCCE);
-    cursor: pointer;
-    border-radius: 30px;
-}
-
-button.reset {
-    color: #000;
-    padding: 10px 30px;
-    margin: 20px auto;
-    font-size: 0.8em;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: bold;
-    text-shadow: 0 0 10px #fff;
-    background-image: linear-gradient(to right, #EFEB77, #F6AF04);
+    text-shadow: 0 0 20px #fff;
+    background-image: linear-gradient(to right,#7E9680, #79616F);
     cursor: pointer;
     border-radius: 30px;
 }

@@ -17,7 +17,7 @@ while ($res=mysqli_fetch_array($result)){
 
 <head>
     <link rel="stylesheet" href="css/koleksisoalankuizstyle.css?v=<?php echo time(); ?>">
-    <title>Laman Utama</title>
+    <title>Koleksi Soalan Kuiz</title>
 </head>
     <!-- header mula -->
         <div class="space">
@@ -28,7 +28,6 @@ while ($res=mysqli_fetch_array($result)){
     <!-- header tamat -->
             <div class="maincontent">
                 <div class="title">SENARAI SOALAN KUIZ BAGI TOPIK: <?php echo $papartopik;?></div>
-                <div class="tambahsoalan"><a href="tambahsoalan.php" class="fas fa-plus" style="font-size: 20px;"></a></div>
                 <div class="balik"><a href="koleksikuizguru.php">Balik</a></div>
                 <div class="separator"></div>
                 <div class="detailbox"> 
@@ -36,21 +35,26 @@ while ($res=mysqli_fetch_array($result)){
                     <table class="koleksisoalankuiz" autowidth="false">
                         <thead>
                             <tr>
-                                <th style="width: 10%;">Bil.</th>
+                                <th style="width: 5%;">Bil.</th>
                                 <th style="width: 50%;">Soalan</th>
                                 <th style="width: 20%;">Jawapan</th>
-                                <th style="width: 20%;">Tindakan</th>
+                                <th style="width: 25%;">Tindakan</th>
                             </tr>
                         </thead>
                         <?php
                             //output semua butiran
                             $bil = 1;
-                            $data1 = mysqli_query($conn, "SELECT * FROM soalan AS q INNER JOIN pilihan AS a ON q.idsoal=a.idsoal
-                            WHERE q.idtopik=$topikpilihan AND a.jwp=1 GROUP BY a.idsoal ORDER BY q.idsoal ASC");
+                            $querysoalan = "SELECT * FROM soalan AS q INNER JOIN pilihan AS a ON q.idsoal=a.idsoal
+                            WHERE q.idtopik='$topikpilihan' AND a.jwp=1 GROUP BY a.idsoal ORDER BY q.idsoal ASC";
+                            $resultquerysoalan = mysqli_query($conn, $querysoalan);
                             //while loop untuk memastikan semua data dipaparkan
-                            while($info1 = mysqli_fetch_array($data1)){ ?> 
+                            while($info1 = mysqli_fetch_array($resultquerysoalan)){ ?> 
                             <!-- papar dalam bentuk jadual -->
                             <tr>
+                                <?php
+                                    $querysoal = mysqli_query($conn, "SELECT * FROM soalan");
+                                    $rows = mysqli_fetch_assoc($querysoal);
+                                ?>
                                 <td><?php echo $bil++;?></td>
                                 <td><?php echo $info1['soal'];?></td>
                                 <td><?php echo $info1['plhjwp'];?></td>
@@ -62,13 +66,7 @@ while ($res=mysqli_fetch_array($result)){
                             <?php } ?>
                     </table>
                     <br><br>Jumlah Rekod: <?php echo $bil-1;?><br>
-                    <?php
-                        function pre_r($array){
-                            echo '<pre>';
-                            print_r($array);
-                            echo '</pre>';
-                        }
-                    ?>
+                    
                 </div>
             </div>
         </div>

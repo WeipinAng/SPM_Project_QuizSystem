@@ -75,6 +75,61 @@ a {
     padding: 40px;
 }
 
+.searchbox {
+    position: relative;
+}
+
+.searchbox .searchinput {
+    width: 0px;
+    color: #006266;
+    border: 0;
+    height: 40px;
+    padding: 0px 0px;
+    border-radius: 50px;
+    box-shadow: 0 0 8px 1px #b6bbc0;
+    outline: none;
+    font-size: 15px;
+    font-weight: bold;
+    transition: all 0.5s linear;
+}
+
+.searchbutton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #f5f6f8;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.5s 0.6s linear;
+}
+
+.searchbutton .fas {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #01a3a4;
+    font-size: 15px;
+    transition: all 0.5s 0.6s linear;
+}
+
+.searchbutton.bg-aquavelvet {
+    background: #01a3a4;
+    transition: all 0.2s linear;
+}
+
+.searchbutton .fas.color-white {
+    color: #fff;
+    transition: all 0.2s linear;
+}
+
+.searchbox .searchinput.active-width {
+    width: 400px;
+    padding-left: 50px;
+}
+
 .senaraimurid {
     width: 100%;
     table-layout: auto;
@@ -112,4 +167,19 @@ table tr td {
 
 .hapusmurid:hover {
     background-color: #eb2f06;
+}
+
+a[name="cetak"] {
+    cursor: pointer;
+    background-image: linear-gradient(to right, #7E9680, #79616F);
+    text-shadow: 0 0 4px #fff;
+    padding: 5px;
+    color: white;
+    letter-spacing: 2px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    float: right;
+    margin-top: -50px;
+    margin-right: 10px;
 }

@@ -2,13 +2,11 @@
 require 'connect.php';
 require 'keselamatan.php';
 include('template/sidebar.php');
-
-$idpengguna=$_SESSION['idpengguna'];
 ?>
 
 <head>
-    <link rel="stylesheet" href="koleksikuizmuridstyle.css?v=<?php echo time(); ?>">
-    <title>Laman Utama</title>
+    <link rel="stylesheet" href="css/koleksikuizmuridstyle.css?v=<?php echo time(); ?>">
+    <title>Koleksi Kuiz Murid</title>
 </head>
     <!-- header mula -->
         <div class="space">
@@ -25,26 +23,27 @@ $idpengguna=$_SESSION['idpengguna'];
                     <table class="koleksikuiz" autowidth="false">
                         <thead>
                             <tr>
-                                <th style="width: 10%;">Bil.</th>
-                                <th style="width: 50%;">Topik</th>
+                                <th style="width: 5%;">Bil.</th>
+                                <th style="width: 60%;">Topik</th>
                                 <th style="width: 15%;">Bil. Soalan</th>
-                                <th style="width: 25%;">Soalan</th>
+                                <th style="width: 20%;">Soalan</th>
                             </tr>
                         </thead>
                         <?php
                             $bil = 1;
-                            $data1 = mysqli_query($conn, "SELECT * FROM topik");
-                            while ($info1=mysqli_fetch_array($data1)){
-                                $databil=mysqli_query($conn, "SELECT COUNT(idtopik) AS 'bil' FROM soalan WHERE idtopik='info1[idtopik]'");
-                                $getbil=mysqli_fetch_array($databil);
+                            $querytopik = mysqli_query($conn, "SELECT * FROM topik");
+                            while ($rowtopik = mysqli_fetch_array($querytopik)){
+                                $idtopik = $rowtopik['idtopik'];
+                                $databil = mysqli_query($conn, "SELECT nosoal FROM soalan WHERE idtopik='$idtopik'");
+                                $getbil = mysqli_num_rows($databil);
                         ?>
                             <!-- papar dalam bentuk jadual -->
                             <tr>
                                 <td><?php echo $bil++;?></td>
-                                <td><?php echo $info1['topik'];?></td>
-                                <td><?php echo $getbil['bil'];?></td>
+                                <td><?php echo $rowtopik['topik'];?></td>
+                                <td><?php echo $getbil;?></td>
                                 <td>
-                                    <a href="jawabsoalan.php?idtopik=<?php echo $info1['idtopik']; ?>" class="jawabsoalan">Mula Menjawab</a>
+                                    <a href="lamanjawabsoalan.php?idtopik=<?php echo $rowtopik['idtopik']; ?>" class="jawabsoalan">Mula Menjawab</a>
                                 </td>
                             </tr>
                         <?php } ?>             

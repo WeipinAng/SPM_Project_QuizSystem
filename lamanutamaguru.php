@@ -7,7 +7,7 @@ $idpengguna=$_SESSION['idpengguna'];
 
 <head>
     <link rel="stylesheet" href="css/lamanutamagurustyle.css?v=<?php echo time(); ?>">
-    <title>Laman Utama</title>
+    <title>Laman Utama Guru</title>
 </head>
     <!-- header mula -->
         <div class="space">
