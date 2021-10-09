@@ -53,7 +53,7 @@ if(isset($_POST['idpengguna'])){
             <form class="registerform" action="" method="post">
                 <div class="forminput">
                     <input onchange="checkLength(this)" type="text"
-                    name="idpengguna" placeholder="ID Pengguna" maxlength="5"
+                    name="idpengguna" placeholder="ID Pengguna"
                     onkeypress='return event.charCode==71 || event.charCode==77 || (event.charCode>=48 && event.charCode<=57)' required autofocus/>
                     <i class="fas fa-address-card"></i>
                     <script>
