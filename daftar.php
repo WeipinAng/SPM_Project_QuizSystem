@@ -7,16 +7,16 @@ if(isset($_POST['idpengguna'])){
     $idpengguna=$_POST['idpengguna'];
     $katalaluan=$_POST['katalaluan'];
     $nama=$_POST['nama'];
-    $peranan=$_POST['peranan'];//perlu alert
+    $peranan=$_POST['peranan'];
     $notel=$_POST['notel'];
 
     $daftar="INSERT INTO pengguna (idpengguna,katalaluan,nama,peranan,notel) VALUES
-    ('$idpengguna','$katalaluan','$nama','$peranan','$notel')";//jika ada ralat
+    ('$idpengguna','$katalaluan','$nama','$peranan','$notel')";
     $hasil=mysqli_query($conn,$daftar);
     if ($hasil){
-        echo"<script>alert('Pendaftaran berjaya.');window.location='login.php'</script>";
+        echo"<script>alert('Pendaftaran sebagai pengguna baharu berjaya.');window.location='login.php'</script>";
     }else{
-        echo"<script>alert('Pendaftaran gagal.');window.location='daftar.php'</script>";
+        echo"<script>alert('Pendaftaran sebagai pengguna baharu gagal.');window.location='daftar.php'</script>";
     }
 }
 ?>

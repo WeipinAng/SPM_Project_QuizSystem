@@ -73,7 +73,7 @@ $idpengguna=$_SESSION['idpengguna'];
                                                 <td><?php echo $rows['topik'];?></td>
                                                 <td>
                                                     <a href="kemaskinitopik.php?idtopik=<?php echo $rows['idtopik']; ?>" class="kemaskinikuiz">Kemas Kini</a>
-                                                    <a href="hapuskantopik.php?idtopik=<?php echo $rows['idtopik']; ?>" class="hapuskuiz" onclick="return confirm('Adakah anda ingin hapuskan kuiz ini?')">Hapuskan</a>
+                                                    <a href="hapuskantopik.php?idtopik=<?php echo $rows['idtopik']; ?>" class="hapuskuiz" onclick="return confirm('Adakah anda ingin menghapuskan topik ini?')">Hapuskan</a>
                                                 </td>
                                                 <td>
                                                     <a href="koleksisoalankuiz.php?idtopik=<?php echo $rows['idtopik']; ?>" class="koleksisoalankuiz"><i class="fas fa-eye"></i></a>
