@@ -74,7 +74,7 @@ include('template/sidebar.php');
                                                 <td><?php echo $fetchmurid['katalaluan'];?></td>
                                                 <td><?php echo $fetchmurid['notel'];?></td>
                                                 <td>
-                                                    <a href="hapuskanmurid.php?idpengguna=<?php echo $fetchmurid['idpengguna']; ?>" class="hapusmurid" onclick="return confirm('Adakah anda ingin hapuskan kesemua rekod murid ini?')">Hapuskan</a>
+                                                    <a href="hapuskanmurid.php?idpengguna=<?php echo $fetchmurid['idpengguna']; ?>" class="hapusmurid" onclick="return confirm('Adakah anda ingin hapuskan semua rekod murid ini?')">Hapuskan</a>
                                                 </td>
                                             </tr>
                                         </tbody> 

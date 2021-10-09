@@ -72,7 +72,7 @@ include('template/sidebar.php');
                                     echo $datatopik['biltopik'];
                                 } ?></td>
                                 <td>
-                                    <a href="hapuskanguru.php?idtopik=<?php echo $fetchguru['idpengguna']; ?>" class="hapusguru" onclick="return confirm('Adakah anda ingin hapuskan kesemua rekod guru ini?')">Hapuskan</a>
+                                    <a href="hapuskanguru.php?idpengguna=<?php echo $fetchguru['idpengguna']; ?>" class="hapusguru" onclick="return confirm('Adakah anda ingin hapuskan semua rekod guru ini?')">Hapuskan</a>
                                 </td>
                             </tr>
                         </tbody>
