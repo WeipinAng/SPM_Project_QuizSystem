@@ -2,8 +2,6 @@
 require 'connect.php';
 require 'keselamatan.php';
 include('template/sidebar.php');
-
-$idpengguna=$_SESSION['idpengguna'];
 ?>
 
 <head>
