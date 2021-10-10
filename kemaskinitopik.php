@@ -24,7 +24,6 @@ $idpengguna=$_SESSION['idpengguna'];
                     <!-- output borang pengemaskinian kuiz -->
                     <h3>
                     <?php
-                        //pilih topik untuk dikemaskinikan
                         $idtopik = $_GET['idtopik'];
                         $res = "SELECT * FROM topik WHERE idtopik='$idtopik'";
                         $update = mysqli_query($conn,$res);
@@ -42,10 +41,10 @@ $idpengguna=$_SESSION['idpengguna'];
 
                         if(isset($_POST['update'])) {
                             $topik = $_POST['topik'];
-                            //kemaskini idtopik dan topik dengan data baharu
+                            //kemaskini topik dengan data baharu
                             $sql = "UPDATE topik SET topik='$topik' WHERE idtopik='$idtopik'";
                             $update = mysqli_query($conn,$sql);
-                            //pastikan idtopik dan topik sudah berjaya dikemaskinikan
+                            //pastikan topik sudah berjaya dikemaskinikan
                             echo"<script>alert('Butiran topik berjaya dikemaskinikan.');window.location='koleksikuizguru.php'</script>";
                         }
                     ?>
