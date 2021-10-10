@@ -64,7 +64,7 @@ $idpengguna=$_SESSION['idpengguna'];
                             if ($hasil){
                                 header("location:daftarsoalan.php?jumlahsoalan=$jumlahsoalan&idtopik=$idtopikbaharu&topik=$topik");
                             }else{
-                                echo"<script>alert('Pendaftaran Kuiz Gagal.');window.location='tambahkuiz.php'</script>";
+                                echo"<script>alert('Pendaftaran Topik Gagal.');window.location='tambahkuiz.php'</script>";
                             }
                         }                   
                     ?>                  
