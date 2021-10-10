@@ -59,7 +59,7 @@ if(isset($_POST['idpengguna'])){
                     <script>
                         function checkLength (e1){
                             if (e1.value.length !=5){
-                                alert("ID Pengguna terdiri daripada satu abjad huruf besar dan empat digit.")
+                                alert("ID Pengguna terdiri daripada satu abjad huruf besar diikuti dengan empat digit.")
                             }
                         }
                     </script>
