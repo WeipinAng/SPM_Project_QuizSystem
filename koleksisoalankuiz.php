@@ -60,7 +60,7 @@ while ($res=mysqli_fetch_array($result)){
                                 <td><?php echo $info1['plhjwp'];?></td>
                                 <td>
                                     <a href="kemaskinisoalan.php?idsoal=<?php echo $info1['idsoal']; ?>" class="kemaskinisoalan">Kemas Kini</a>
-                                    <a href="hapuskansoalan.php?idsoal=<?php echo $info1['idsoal']; ?>" class="hapussoalan" onclick="return confirm('Adakah anda ingin hapuskan soalan ini?')">Hapuskan</a>
+                                    <a href="hapuskansoalan.php?idsoal=<?php echo $info1['idsoal']; ?>" class="hapussoalan" onclick="return confirm('Adakah anda ingin menghapuskan soalan ini?')">Hapuskan</a>
                                 </td>
                             </tr>
                             <?php } ?>
