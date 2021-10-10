@@ -46,7 +46,7 @@ $idpengguna=$_SESSION['idpengguna'];
                             $sql = "UPDATE topik SET topik='$topik' WHERE idtopik='$idtopik'";
                             $update = mysqli_query($conn,$sql);
                             //pastikan idtopik dan topik sudah berjaya dikemaskinikan
-                            echo"<script>alert('Butiran kuiz berjaya dikemaskinikan.');window.location='koleksikuizguru.php'</script>";
+                            echo"<script>alert('Butiran topik berjaya dikemaskinikan.');window.location='koleksikuizguru.php'</script>";
                         }
                     ?>
                     
