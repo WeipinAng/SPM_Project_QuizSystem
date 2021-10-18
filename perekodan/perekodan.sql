@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 03, 2021 at 03:57 PM
+-- Generation Time: Oct 10, 2021 at 04:44 PM
 -- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.11
+-- PHP Version: 7.4.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -78,7 +78,7 @@ INSERT INTO `perekodan` (`idrekod`, `tarikh`, `markah`, `gred`, `idpengguna`, `i
 
 CREATE TABLE `pilihan` (
   `idpilihan` varchar(10) NOT NULL,
-  `plhjwp` varchar(30) NOT NULL,
+  `plhjwp` varchar(80) NOT NULL,
   `jwp` varchar(5) NOT NULL,
   `idsoal` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -89,9 +89,9 @@ CREATE TABLE `pilihan` (
 
 INSERT INTO `pilihan` (`idpilihan`, `plhjwp`, `jwp`, `idsoal`) VALUES
 ('P1', 'hancing', '0', 'S1'),
-('P10', 'condong', '0', 'S3'),
-('P11', 'bongkok', '0', 'S3'),
-('P12', 'serong', '0', 'S3'),
+('P10', 'cepat', '0', 'S3'),
+('P11', 'laju', '0', 'S3'),
+('P12', 'cekap', '0', 'S3'),
 ('P2', 'tengik', '0', 'S1'),
 ('P3', 'hanyir', '1', 'S1'),
 ('P4', 'basi', '0', 'S1'),
@@ -99,7 +99,7 @@ INSERT INTO `pilihan` (`idpilihan`, `plhjwp`, `jwp`, `idsoal`) VALUES
 ('P6', 'lemau', '0', 'S2'),
 ('P7', 'lembik', '0', 'S2'),
 ('P8', 'lembut', '0', 'S2'),
-('P9', 'bengkok', '1', 'S3');
+('P9', 'tangkas', '1', 'S3');
 
 -- --------------------------------------------------------
 
@@ -110,7 +110,7 @@ INSERT INTO `pilihan` (`idpilihan`, `plhjwp`, `jwp`, `idsoal`) VALUES
 CREATE TABLE `soalan` (
   `idsoal` varchar(10) NOT NULL,
   `nosoal` varchar(5) NOT NULL,
-  `soal` varchar(50) NOT NULL,
+  `soal` varchar(100) NOT NULL,
   `idtopik` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -121,7 +121,7 @@ CREATE TABLE `soalan` (
 INSERT INTO `soalan` (`idsoal`, `nosoal`, `soal`, `idtopik`) VALUES
 ('S1', '1', 'ikan _____', 'T01'),
 ('S2', '2', 'ubi _____', 'T01'),
-('S3', '3', 'tiang lampu _____', 'T01');
+('S3', '3', 'Pemain bola sepak yang _____ itu telah dipilih sebagai pemain terbaik.', 'T01');
 
 -- --------------------------------------------------------
 
