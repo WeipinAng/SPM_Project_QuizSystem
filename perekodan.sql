@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2021 at 04:44 PM
+-- Generation Time: Nov 11, 2021 at 10:38 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.24
 
@@ -44,8 +44,7 @@ INSERT INTO `pengguna` (`idpengguna`, `peranan`, `nama`, `katalaluan`, `notel`) 
 ('G0005', 'guru', 'Liew Pei Sze', 'peisze90', '0164899354'),
 ('G0006', 'guru', 'Lee Yeng Yeng', 'yengyeng95', '0145982133'),
 ('M0001', 'murid', 'Chia Yee Kin', 'cyk0129', '0123970542'),
-('M0002', 'murid', 'Loh Wei Bin', 'lwb1130', '0165923019'),
-('M0004', 'murid', 'Khor Rui Zhe', 'krz1107', '0145067892');
+('M0002', 'murid', 'Loh Wei Bin', 'lwb1130', '0165923019');
 
 -- --------------------------------------------------------
 
@@ -92,6 +91,10 @@ INSERT INTO `pilihan` (`idpilihan`, `plhjwp`, `jwp`, `idsoal`) VALUES
 ('P10', 'cepat', '0', 'S3'),
 ('P11', 'laju', '0', 'S3'),
 ('P12', 'cekap', '0', 'S3'),
+('P13', 'menanak', '1', 'S4'),
+('P14', 'menjerang', '0', 'S4'),
+('P15', 'mengukus', '0', 'S4'),
+('P16', 'merebus', '0', 'S4'),
 ('P2', 'tengik', '0', 'S1'),
 ('P3', 'hanyir', '1', 'S1'),
 ('P4', 'basi', '0', 'S1'),
@@ -121,7 +124,8 @@ CREATE TABLE `soalan` (
 INSERT INTO `soalan` (`idsoal`, `nosoal`, `soal`, `idtopik`) VALUES
 ('S1', '1', 'ikan _____', 'T01'),
 ('S2', '2', 'ubi _____', 'T01'),
-('S3', '3', 'Pemain bola sepak yang _____ itu telah dipilih sebagai pemain terbaik.', 'T01');
+('S3', '3', 'Pemain bola sepak yang _____ itu telah dipilih sebagai pemain terbaik.', 'T01'),
+('S4', '1', '_____ nasi', 'T02');
 
 -- --------------------------------------------------------
 
@@ -141,7 +145,7 @@ CREATE TABLE `topik` (
 
 INSERT INTO `topik` (`idtopik`, `topik`, `idpengguna`) VALUES
 ('T01', 'Kata Adjektif', 'G0005'),
-('T02', 'Kata Kerja', 'G0006');
+('T02', 'Kata Kerja', 'G0005');
 
 --
 -- Indexes for dumped tables

@@ -3,7 +3,7 @@
     require 'connect.php';
 
     session_start();
-    //nama mesti sama dengan nama di login.php
+    //nama mesti sama dengan nama di index.php
     if (isset($_POST['idpengguna'])){
         $idpengguna = $_POST['idpengguna'];
         $katalaluan = $_POST['katalaluan'];
@@ -13,7 +13,7 @@
         //perlu sama dengan post
         if (mysqli_num_rows($query)==0||$row['katalaluan']!=$katalaluan){
             echo"<script>alert('Minta maaf, ID Pengguna atau kata laluan anda salah.');
-            window.location='login.php'</script>";
+            window.location='index.php'</script>";
         }else{
             $_SESSION['idpengguna']=$row['idpengguna'];
             //akan bawa ke lamanutamamurid.php
@@ -31,7 +31,7 @@
         //perlu sama dengan post
         if (mysqli_num_rows($query)==0||$row['katalaluan']!=$katalaluan){
             echo"<script>alert('Minta maaf, ID Pengguna atau kata laluan anda salah.');
-            window.location='login.php'</script>";
+            window.location='index.php'</script>";
         }else{
             $_SESSION['idpengguna']=$row['idpengguna'];
             //akan bawa ke lamanutamaguru.php

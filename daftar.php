@@ -14,7 +14,7 @@ if(isset($_POST['idpengguna'])){
     ('$idpengguna','$katalaluan','$nama','$peranan','$notel')";
     $hasil=mysqli_query($conn,$daftar);
     if ($hasil){
-        echo"<script>alert('Pendaftaran sebagai pengguna baharu berjaya.');window.location='login.php'</script>";
+        echo"<script>alert('Pendaftaran sebagai pengguna baharu berjaya.');window.location='index.php'</script>";
     }else{
         echo"<script>alert('Pendaftaran sebagai pengguna baharu gagal.');window.location='daftar.php'</script>";
     }
@@ -104,7 +104,7 @@ if(isset($_POST['idpengguna'])){
                     <button class="reset" type="reset">Reset</button>
                 </div>
                 <br><br>
-                <p class="balik"><a href="login.php">Klik sini untuk kembali ke halaman login</a></p>
+                <p class="balik"><a href="index.php">Klik sini untuk kembali ke halaman login</a></p>
             </form>
         </div>
     </div>
